@@ -734,6 +734,23 @@ else()
     list(APPEND Open3D_3RDPARTY_PRIVATE_TARGETS_FROM_SYSTEM Open3D::3rdparty_jpeg)
 endif()
 
+if(USE_SYSTEM_OPENCV)
+        open3d_find_package_3rdparty_library(3rdparty_opencv
+        PACKAGE OpenCV
+        TARGETS OpenCV::OpenCV
+    )
+    if(3rdparty_opencv_FOUND)
+        if(TARGET Open3D::3rdparty_opencv)
+            list(APPEND Open3D_3RDPARTY_PRIVATE_TARGETS_FROM_SYSTEM Open3D::3rdparty_opencv)
+        endif()
+    else()
+        message(FATAL_ERROR "OpenCV not found on the system.")
+    endif()
+endif()
+if(NOT USE_SYSTEM_OPENCV)
+    message(FATAL_ERROR "OpenCV build from source is not supported in Open3D. Please use system's OpeCV by -DUSE_SYSTEM_OPENCV=ON.")
+endif()
+
 # jsoncpp
 if(USE_SYSTEM_JSONCPP)
     open3d_find_package_3rdparty_library(3rdparty_jsoncpp
