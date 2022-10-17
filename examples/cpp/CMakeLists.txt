@@ -27,6 +27,8 @@ macro(open3d_add_example EXAMPLE_CPP_NAME)
     list(APPEND EXAMPLE_TARGETS ${EXAMPLE_CPP_NAME})
 endmacro()
 
+open3d_add_example(PimgFD)
+
 if (BUILD_GUI)
     open3d_add_example(TICP                  Open3D::3rdparty_threads)
 endif()

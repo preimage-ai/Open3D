@@ -23,3 +23,31 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 // IN THE SOFTWARE.
 // ----------------------------------------------------------------------------
+
+#pragma once
+
+#include <string>
+#include <iostream>
+
+namespace open3d {
+namespace preimage {
+
+/// \class FeatureDetection
+///
+/// \brief FeatureDetection is a class that provides feature detection
+/// functionalities.
+class FeatureDetection {
+public:
+    FeatureDetection(int sample_val);
+    // ~FeatureDetection() = default;
+
+public:
+    // void DetectAndSaveFeatures(std::string image_path, std::string
+    // output_dir_path);
+
+private:
+    int sample_;
+};
+
+}  // namespace preimage
+}  // namespace open3d

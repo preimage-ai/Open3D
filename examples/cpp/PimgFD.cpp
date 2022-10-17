@@ -24,37 +24,16 @@
 // IN THE SOFTWARE.
 // ----------------------------------------------------------------------------
 
-#include "open3d/preimage/image/FeatureDetection.h"
+#include <iostream>
 
-#include "open3d/t/io/ImageIO.h"
+#include "open3d/Open3D.h"
 
-namespace open3d {
-namespace preimage {
+using namespace open3d;
 
-FeatureDetection::FeatureDetection(int sample_val) : sample_(sample_val) {
-    std::cout << " DEBUG #" << std::endl;
+int main() {
+
+    open3d::preimage::FeatureDetection fd();
+    // fd.DetectAndSaveFeatures("test.jpg", "test");
+
+    return 0;
 }
-
-// FeatureDetection::~FeatureDetection() {}
-
-// void FeatureDetection::DetectAndSaveFeatures(std::string image_path,
-//                                              std::string output_dir_path) {
-//     // Read image
-//     auto image = t::io::CreateImageFromFile(image_path);
-//     if (image == nullptr) {
-//         utility::LogError("Failed to read image: {}", image_path);
-//     }
-
-//     // Detect features
-//     // auto features = DetectFeatures(*image);
-//     // if (features == nullptr) {
-//     //     utility::LogError("Failed to detect features");
-//     // }
-
-//     // Save features
-//     std::cout << "Saved features for " << image_path << std::endl;
-//     // io::WriteFeature(output_dir_path + "/features.json", *features);
-// }
-
-}  // namespace preimage
-}  // namespace open3d
