@@ -46,7 +46,7 @@ option(BUILD_EXAMPLES             "Build Open3D examples programs"           ON 
 option(BUILD_UNIT_TESTS           "Build Open3D unit tests"                  OFF)
 option(BUILD_BENCHMARKS           "Build the micro benchmarks"               OFF)
 option(BUILD_PYTHON_MODULE        "Build the python module"                  ON )
-option(BUILD_CUDA_MODULE          "Build the CUDA module"                    OFF)
+option(BUILD_CUDA_MODULE          "Build the CUDA module"                    ON)
 option(BUILD_COMMON_CUDA_ARCHS    "Build for common CUDA GPUs (for release)" OFF)
 option(ENABLE_CACHED_CUDA_MANAGER "Enable cached CUDA memory manager"        ON )
 if(NOT LINUX_AARCH64 AND NOT APPLE_AARCH64)

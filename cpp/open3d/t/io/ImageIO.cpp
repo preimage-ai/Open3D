@@ -33,6 +33,7 @@
 
 #include "open3d/core/ParallelFor.h"
 #include "open3d/io/ImageIO.h"
+#include "open3d/preimage/image/Image.h"
 #include "open3d/t/geometry/kernel/GeometryIndexer.h"
 #include "open3d/utility/FileSystem.h"
 #include "open3d/utility/Logging.h"

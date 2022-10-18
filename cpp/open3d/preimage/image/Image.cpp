@@ -24,39 +24,41 @@
 // IN THE SOFTWARE.
 // ----------------------------------------------------------------------------
 
-#include <tinyfiledialogs/tinyfiledialogs.h>
+#include "open3d/preimage/image/Image.h"
 
-#include "open3d/Open3D.h"
+#include <iostream>
+#include <limits>
+#include <memory>
+#include <string>
+#include <vector>
 
-void PrintHelp() {
-    using namespace open3d;
+#include "open3d/core/Dtype.h"
+#include "open3d/core/Tensor.h"
+#include "open3d/geometry/Image.h"
 
-    PrintOpen3DVersion();
-    // clang-format off
-    utility::LogInfo("Usage:");
-    utility::LogInfo("    > FileDialog [save|load]");
-    // clang-format on
-    utility::LogInfo("");
+namespace open3d {
+namespace preimage {
+
+FeatureDetector::FeatureDetector(const std::string& source_image_path,
+                                 const std::string& output_feature_path)
+    : source_image_path_(source_image_path),
+      output_feature_path_(output_feature_path) {
+    std::cout << "Computing SIFT features for " << source_image_path_
+              << std::endl;
 }
 
-int main(int argc, char *argv[]) {
-    using namespace open3d;
-    if (argc != 2 ||
-        utility::ProgramOptionExistsAny(argc, argv, {"-h", "--help"})) {
-        PrintHelp();
-        return 1;
-    }
-
-    std::string option(argv[1]);
-    char const *pattern = "*.*";
-    if (option == "load") {
-        char const *str = tinyfd_openFileDialog("Find a file to load", "", 0,
-                                                NULL, NULL, 1);
-        utility::LogInfo("{}", str);
-    } else if (option == "save") {
-        char const *str = tinyfd_saveFileDialog("Find a file to save", "", 1,
-                                                &pattern, NULL);
-        utility::LogInfo("{}", str);
-    }
-    return 0;
+void FeatureDetector::DetectAndSaveFeatures() {
+    std::cout << "Features saved at " << output_feature_path_ << std::endl;
 }
+
+// FeatureDetector::FeatureDetector() {
+//     std::cout << "FeatureDetector created" << std::endl;
+// }
+
+// void DetectAndSaveFeatures(std::string image_path,
+//                            std::string out_feature_path) {
+//     std::cout << "DetectAndSaveFeatures called" << std::endl;
+// }
+
+}  // namespace preimage
+}  // namespace open3d
