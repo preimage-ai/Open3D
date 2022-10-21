@@ -24,15 +24,20 @@
 // IN THE SOFTWARE.
 // ----------------------------------------------------------------------------
 
-// #ifndef CUDASIFT_H
-// #define CUDASIFT_H
+//********************************************************//
+// CUDA SIFT extractor by Marten Bjorkman aka Celebrandil //
+//********************************************************//
 
 #pragma once
+
+#ifndef CUDASIFT_H
+#define CUDASIFT_H
 
 #include "open3d/preimage/image/kernel/CudaSift/cudaImage.h"
 
 namespace open3d {
 namespace preimage {
+namespace image {
 namespace kernel {
 
 typedef struct {
@@ -65,7 +70,6 @@ typedef struct {
 } SiftData;
 
 void InitCuda(int devNum = 0);
-
 float *AllocSiftTempMemory(int width,
                            int height,
                            int numOctaves,
@@ -94,8 +98,9 @@ double FindHomography(SiftData &data,
                       float maxAmbiguity = 0.95f,
                       float thresh = 5.0f);
 
-// #endif
+}  // namespace kernel
+}  // namespace image
+}  // namespace preimage
+}  // namespace open3d
 
-} // namespace kernel
-} // namespace preimage
-} // namespace open3d
+#endif

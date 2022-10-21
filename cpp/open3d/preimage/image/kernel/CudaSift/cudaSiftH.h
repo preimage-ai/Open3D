@@ -24,20 +24,21 @@
 // IN THE SOFTWARE.
 // ----------------------------------------------------------------------------
 
-// #ifndef CUDASIFTH_H
-// #define CUDASIFTH_H
-
-#pragma once 
-
-#include "open3d/preimage/image/kernel/CudaSift/cudaImage.h"
-#include "open3d/preimage/image/kernel/CudaSift/cudautils.h"
-
 //********************************************************//
 // CUDA SIFT extractor by Marten Bjorkman aka Celebrandil //
 //********************************************************//
 
+#pragma once
+
+#ifndef CUDASIFTH_H
+#define CUDASIFTH_H
+
+#include "open3d/preimage/image/kernel/CudaSift/cudaImage.h"
+#include "open3d/preimage/image/kernel/CudaSift/cudautils.h"
+
 namespace open3d {
 namespace preimage {
+namespace image {
 namespace kernel {
 
 int ExtractSiftLoop(SiftData &siftData,
@@ -49,7 +50,6 @@ int ExtractSiftLoop(SiftData &siftData,
                     float subsampling,
                     float *memoryTmp,
                     float *memorySub);
-
 void ExtractSiftOctave(SiftData &siftData,
                        CudaImage &img,
                        int octave,
@@ -57,37 +57,27 @@ void ExtractSiftOctave(SiftData &siftData,
                        float lowestScale,
                        float subsampling,
                        float *memoryTmp);
-
 double ScaleDown(CudaImage &res, CudaImage &src, float variance);
-
 double ScaleUp(CudaImage &res, CudaImage &src);
-
 double ComputeOrientations(cudaTextureObject_t texObj,
                            CudaImage &src,
                            SiftData &siftData,
                            int octave);
-
 double ExtractSiftDescriptors(cudaTextureObject_t texObj,
                               SiftData &siftData,
                               float subsampling,
                               int octave);
-
 double OrientAndExtract(cudaTextureObject_t texObj,
                         SiftData &siftData,
                         float subsampling,
                         int octave);
-
 double RescalePositions(SiftData &siftData, float scale);
-
 double LowPass(CudaImage &res, CudaImage &src, float scale);
-
 void PrepareLaplaceKernels(int numOctaves, float initBlur, float *kernel);
-
 double LaplaceMulti(cudaTextureObject_t texObj,
                     CudaImage &baseImage,
                     CudaImage *results,
                     int octave);
-
 double FindPointsMulti(CudaImage *sources,
                        SiftData &siftData,
                        float thresh,
@@ -97,8 +87,9 @@ double FindPointsMulti(CudaImage *sources,
                        float subsampling,
                        int octave);
 
-// #endif
+}  // namespace kernel
+}  // namespace image
+}  // namespace preimage
+}  // namespace open3d
 
-} // namespace kernel
-} // namespace preimage
-} // namespace open3d
+#endif

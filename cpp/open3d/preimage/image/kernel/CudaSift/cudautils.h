@@ -24,10 +24,10 @@
 // IN THE SOFTWARE.
 // ----------------------------------------------------------------------------
 
-// #ifndef CUDAUTILS_H
-// #define CUDAUTILS_H
-
 #pragma once
+
+#ifndef CUDAUTILS_H
+#define CUDAUTILS_H
 
 #include <cstdio>
 #include <iostream>
@@ -38,6 +38,7 @@
 
 namespace open3d {
 namespace preimage {
+namespace image {
 namespace kernel {
 
 #define safeCall(err) __safeCall(err, __FILE__, __LINE__)
@@ -170,8 +171,9 @@ __device__ __inline__ T Shuffle(T var, unsigned int lane, int width = 32) {
 #endif
 }
 
-// #endif
-
 }  // namespace kernel
+}  // namespace image
 }  // namespace preimage
 }  // namespace open3d
+
+#endif

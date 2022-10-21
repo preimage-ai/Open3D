@@ -28,8 +28,6 @@
 // CUDA SIFT extractor by Marten Bjorkman aka Celebrandil //
 //********************************************************//
 
-#include <cstdio>
-
 #include "open3d/core/Device.h"
 #include "open3d/core/Tensor.h"
 #include "open3d/preimage/image/kernel/CudaSift/cudaImage.h"
@@ -37,31 +35,13 @@
 
 namespace open3d {
 namespace preimage {
+namespace image {
 namespace kernel {
 
 int iDivUp(int a, int b) { return (a % b != 0) ? (a / b + 1) : (a / b); }
 int iDivDown(int a, int b) { return a / b; }
 int iAlignUp(int a, int b) { return (a % b != 0) ? (a - a % b + b) : a; }
 int iAlignDown(int a, int b) { return a - a % b; }
-
-CudaImage::CudaImage()
-    : width(0),
-      height(0),
-      pitch(0),
-      h_data(NULL),
-      d_data(NULL),
-      t_data(NULL),
-      d_internalAlloc(false),
-      h_internalAlloc(false) {}
-
-CudaImage::~CudaImage() {
-    if (d_internalAlloc && d_data != NULL) safeCall(cudaFree(d_data));
-    d_data = NULL;
-    if (h_internalAlloc && h_data != NULL) free(h_data);
-    h_data = NULL;
-    if (t_data != NULL) safeCall(cudaFreeArray((cudaArray *)t_data));
-    t_data = NULL;
-}
 
 void CudaImage::Allocate(
         int w, int h, int p, bool host, float *devmem, float *hostmem) {
@@ -85,6 +65,24 @@ void CudaImage::Allocate(
     }
 }
 
+CudaImage::CudaImage()
+    : width(0),
+      height(0),
+      h_data(NULL),
+      d_data(NULL),
+      t_data(NULL),
+      d_internalAlloc(false),
+      h_internalAlloc(false) {}
+
+CudaImage::~CudaImage() {
+    if (d_internalAlloc && d_data != NULL) safeCall(cudaFree(d_data));
+    d_data = NULL;
+    if (h_internalAlloc && h_data != NULL) free(h_data);
+    h_data = NULL;
+    if (t_data != NULL) safeCall(cudaFreeArray((cudaArray *)t_data));
+    t_data = NULL;
+}
+
 double CudaImage::Download() {
     TimerGPU timer(0);
     int p = sizeof(float) * pitch;
@@ -92,22 +90,6 @@ double CudaImage::Download() {
         safeCall(cudaMemcpy2D(d_data, p, h_data, sizeof(float) * width,
                               sizeof(float) * width, height,
                               cudaMemcpyHostToDevice));
-    double gpuTime = timer.read();
-#ifdef VERBOSE
-    printf("Download time =               %.2f ms\n", gpuTime);
-#endif
-    return gpuTime;
-}
-
-double CudaImage::DownloadFromTensor(core::Tensor &tensor,
-                                     core::Device device) {
-    TimerGPU timer(0);
-    d_data = tensor.To(core::Device("CUDA:0")).GetDataPtr<float>();
-    // int p = sizeof(float) * pitch;
-    // if (d_data != NULL && h_data != NULL)
-    //     safeCall(cudaMemcpy2D(d_data, p, h_data, sizeof(float) * width,
-    //                           sizeof(float) * width, height,
-    //                           cudaMemcpyHostToDevice));
     double gpuTime = timer.read();
 #ifdef VERBOSE
     printf("Download time =               %.2f ms\n", gpuTime);
@@ -151,13 +133,13 @@ double CudaImage::CopyToTexture(CudaImage &dst, bool host) {
     }
     TimerGPU timer(0);
     if (host)
-        safeCall(cudaMemcpy2DToArray(
-                (cudaArray *)dst.t_data, 0, 0, h_data, sizeof(float) * pitch,
-                sizeof(float) * pitch, dst.height, cudaMemcpyHostToDevice));
+        safeCall(cudaMemcpyToArray((cudaArray *)dst.t_data, 0, 0, h_data,
+                                   sizeof(float) * pitch * dst.height,
+                                   cudaMemcpyHostToDevice));
     else
-        safeCall(cudaMemcpy2DToArray(
-                (cudaArray *)dst.t_data, 0, 0, d_data, sizeof(float) * pitch,
-                sizeof(float) * pitch, dst.height, cudaMemcpyDeviceToDevice));
+        safeCall(cudaMemcpyToArray((cudaArray *)dst.t_data, 0, 0, d_data,
+                                   sizeof(float) * pitch * dst.height,
+                                   cudaMemcpyDeviceToDevice));
     safeCall(cudaDeviceSynchronize());
     double gpuTime = timer.read();
 #ifdef VERBOSE
@@ -167,5 +149,6 @@ double CudaImage::CopyToTexture(CudaImage &dst, bool host) {
 }
 
 }  // namespace kernel
+}  // namespace image
 }  // namespace preimage
 }  // namespace open3d

@@ -7,7 +7,7 @@ if (BUILD_CUDA_MODULE)
         CudaSift/cudaImage.cu 
         CudaSift/cudaSiftD.cu
         CudaSift/cudaSiftH.cu
-        CudaSift/matching.cu
+        # CudaSift/matching.cu
     )
 endif()
 

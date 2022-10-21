@@ -30,13 +30,14 @@
 
 #pragma once
 
-// #ifndef CUDAIMAGE_H
-// #define CUDAIMAGE_H
-#include "open3d/core/Device.h"
-#include "open3d/core/Tensor.h"
+#ifndef CUDAIMAGE_H
+#define CUDAIMAGE_H
+
+#include <cstddef>
 
 namespace open3d {
 namespace preimage {
+namespace image {
 namespace kernel {
 
 class CudaImage {
@@ -50,7 +51,6 @@ public:
                   float *devMem = NULL,
                   float *hostMem = NULL);
     double Download();
-    double DownloadFromTensor(core::Tensor &tensor, core::Device device);
     double Readback();
     double InitTexture();
     double CopyToTexture(CudaImage &dst, bool host);
@@ -72,8 +72,9 @@ int iAlignDown(int a, int b);
 void StartTimer(unsigned int *hTimer);
 double StopTimer(unsigned int hTimer);
 
-// #endif  // CUDAIMAGE_H
+}  // namespace kernel
+}  // namespace image
+}  // namespace preimage
+}  // namespace open3d
 
-} // namespace kernel
-} // namespace preimage
-} // namespace open3d
+#endif  // CUDAIMAGE_H

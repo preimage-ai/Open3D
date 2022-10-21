@@ -26,19 +26,15 @@
 
 #pragma once
 
-// #include <limits>
-// #include <memory>
 #include <string>
-// #include <vector>
-// #include <iostream>
 
-// #include "open3d/core/Dtype.h"
 #include "open3d/core/Tensor.h"
 #include "open3d/preimage/image/kernel/CudaSift/cudaSift.h"
 #include "open3d/t/geometry/Image.h"
 
 namespace open3d {
 namespace preimage {
+namespace image {
 namespace kernel {
 
 struct FeatureDetectorParams {
@@ -56,10 +52,9 @@ public:
 
     virtual ~FeatureDetector() {}
 
-    unsigned int DetectAndSaveFeatures(core::Tensor source_image_tensor,
-                                       int64_t w,
-                                       int64_t h,
-                                       const std::string output_feature_path);
+    unsigned int DetectAndSaveFeatures(std::string filename,
+                                       const unsigned int image_id,
+                                       unsigned int& num_features);
 
     void SaveFeaturesBinFile(const std::string output_feature_path);
 
@@ -71,8 +66,7 @@ private:
     std::string output_feature_path_;
 };
 
-void Foo();
-
 }  // namespace kernel
+}  // namespace image
 }  // namespace preimage
 }  // namespace open3d

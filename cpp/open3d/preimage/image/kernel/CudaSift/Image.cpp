@@ -31,14 +31,17 @@
 #include <string>
 #include <vector>
 
+#include "open3d/preimage/image/kernel/CudaSift/cudaSift.h"
+
 // #include "open3d/core/Dtype.h"
 // #include "open3d/core/Tensor.h"
 #include "open3d/t/geometry/Image.h"
 #include "open3d/t/io/ImageIO.h"
-#include <vips/vips.h>
+// #include <vips/vips.h>
 
 namespace open3d {
 namespace preimage {
+namespace image {
 namespace kernel {
 
 FeatureDetector::FeatureDetector(const std::string &source_image_path,
@@ -48,16 +51,11 @@ FeatureDetector::FeatureDetector(const std::string &source_image_path,
     std::cout << "Computing SIFT features for " << source_image_path_
               << std::endl;
     InitCuda(0);
+    uint num_features;
+    DetectAndSaveFeatures(source_image_path, 0, num_features);
+    std::cout << "Number of features detected: " << num_features << std::endl;
+    FreeSiftTempMemory(siftMemoryTmp_);
 }
-
-// static void rootsift(float (&desc)[128]) {
-//     float sum = 0;
-//     sum = std::accumulate(desc, desc + 128, sum);
-//     for (size_t i = 0; i < 128; i++) {
-//         desc[i] = desc[i] / sum;
-//         desc[i] = sqrt(desc[i]);
-//     }
-// }
 
 void FeatureDetector::SaveFeaturesBinFile(
         const std::string output_feature_path) {
@@ -95,69 +93,38 @@ void FeatureDetector::SaveFeaturesBinFile(
 }
 
 unsigned int FeatureDetector::DetectAndSaveFeatures(
-        core::Tensor source_image_tensor,
-        int64_t w,
-        int64_t h,
-        const std::string output_feature_path) {
-    void *gbuf = source_image_tensor.GetDataPtr();
-    int array_sz = w * h;
-    // Extract image as a buffer
-    // Cast as unsigned char (8-bit)
-    unsigned char *bw_img_arr = reinterpret_cast<unsigned char *>(gbuf);
-    // Create float array (32-bit)
-    float *fimg = (float *)malloc(int(array_sz) * sizeof(float));
-    std::copy(bw_img_arr, bw_img_arr + int(array_sz), fimg);
+        std::string filename,
+        const unsigned int image_id,
+        unsigned int &num_features) {
+    t::geometry::Image image;
+    t::io::ReadImage(filename, image);
+    int w_ = image.GetCols();
+    int h_ = image.GetRows();
 
-    // Copy image to GPU, this function requires a float array
+    auto tensor = image.AsTensor()
+                          .To(core::Dtype::Float32)
+                          .Mean({2}, false)
+                          .Flatten()
+                          .To(core::Device("CUDA:0"), true);
+    std::cout << "tensor shape: " << tensor.GetShape().ToString() << std::endl;
+    float *dimg = tensor.GetDataPtr<float_t>();
     CudaImage cudaImg;
-    std::cout << "Starting allocation." << std::endl;
-    int p = iAlignUp(w, 128);
-    std::cout << "pitch set: " << p << std::endl;
-    cudaImg.Allocate(w, h, p, false, NULL, fimg);
-    std::cout << "pitch set: " << p << std::endl;
-
-    std::cout << "Downloading to device." << std::endl;
-    // cudaImg.DownloadFromTensor(source_image_tensor, core::Device("CUDA:0"));
-    cudaImg.Download();
-    // cudaImg.d_data =
-    // source_image_tensor.To(core::Device("CUDA:0")).GetDataPtr<float>();
-    // auto timg3 = core::Tensor(cudaImg.d_data, core::SizeVector({p * h}),
-    //                           core::Dtype::Float32, core::Device("CUDA:0"))
-    //                      .Reshape({h, p});
-    // std::cout << "CUDA Image host tensor: " << timg3.GetShape().ToString()
-    //           << std::endl;
-    // timg3 = timg3.Mul(255.0).To(core::Dtype::UInt8);
-    // auto image3 = t::geometry::Image(timg3).To(core::Device("CPU:0"));
-    // t::io::WriteImage("/home/rey/data/tmp/debug2.jpg", image3);
-
-    // std::cout << "Download Complete." << std::endl;
-
-    // cudaImg.Readback();
-    // std::cout << "Readback Complete." << std::endl;
-    // auto timg4 = core::Tensor(cudaImg.h_data, core::SizeVector({w * h}),
-    //                           core::Dtype::Float32, core::Device("CPU:0"))
-    //                      .Reshape({h, w});
-    // std::cout << "Passed tensor: " << timg4.GetShape().ToString() << std::endl;
-    // timg4 = timg4.Mul(255.0).To(core::Dtype::UInt8);
-    // auto image = t::geometry::Image(timg4);
-    // t::io::WriteImage("/home/rey/data/tmp/debug3.jpg", image);
-
-    siftMemoryTmp_ = AllocSiftTempMemory(w, h, 5, false);
-    std::cout << "Assigned Temp Memory to Device for SIFT data." << std::endl;
+    cudaImg.Allocate(w_, h_, iAlignUp(w_, 128), false, dimg, NULL);
+    siftMemoryTmp_ = AllocSiftTempMemory(w_, h_, 5, false);
     InitSiftData(siftData_, 32768, true, true);
-    std::cout << "SiftData allocated" << std::endl;
-
-#define VERBOSE
+    std::cout << "extracting... " << std::endl;
     ExtractSift(siftData_, cudaImg, 5, params_.initBlur, params_.thresh, 0.0f,
                 false, siftMemoryTmp_);
-    const unsigned int num_features = siftData_.numPts;
-    std::cout << "Number of features extracted: " << num_features << std::endl;
-
-    SaveFeaturesBinFile(output_feature_path);
+    // saveBinFile(image_id, output_feature_path_);
+    num_features = siftData_.numPts;
+    std::cout << "extracted: " << num_features << std::endl;
+    
     FreeSiftData(siftData_);
+    // firstDetection_ = false;
     return num_features;
 }
 
 }  // namespace kernel
+}  // namespace image
 }  // namespace preimage
 }  // namespace open3d

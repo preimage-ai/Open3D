@@ -45,38 +45,8 @@ void RunFD() {
             "/home/rey/data/tmp/EP-11-16323_0011_0468.JPG";
     std::string output_feature_path = "/home/rey/data/tmp/0.bin";
 
-    t::geometry::Image image;
-    core::Tensor image_tensor;
-    t::io::ReadImage(input_image_path, image);
-    image = image.Resize(0.5);
-    int64_t w = image.GetCols();
-    int64_t h = image.GetRows();
-
-    if (image.GetDtype() == core::Dtype::UInt8) {
-        utility::LogInfo("Image Dtype: {}, Shape: {}",
-                         image.AsTensor().GetDtype().ToString(),
-                         image.AsTensor().GetShape().ToString());
-
-        image_tensor = image.AsTensor()
-                               .To(core::Float32)
-                               .Mean({2}, false)
-                               .Flatten()
-                               .To(core::UInt8)
-                               .Contiguous();
-
-        utility::LogInfo("Image Tensor Dtype: {}, Shape: {}",
-                         image_tensor.GetDtype().ToString(),
-                         image_tensor.GetShape().ToString());
-    } else {
-        utility::LogError("Image Dtype: {} not supported",
-                          image.GetDtype().ToString());
-    }
-
-    open3d::preimage::kernel::FeatureDetector fd(input_image_path,
-                                                 output_feature_path);
-    unsigned int num_features =
-            fd.DetectAndSaveFeatures(image_tensor, w, h, output_feature_path);
-    std::cout << "Number of features: " << num_features << std::endl;
+    open3d::preimage::image::kernel::FeatureDetector fd(input_image_path,
+                                                        output_feature_path);
 }
 
 }  // namespace preimage

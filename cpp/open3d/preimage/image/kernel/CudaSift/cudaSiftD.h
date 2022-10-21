@@ -28,12 +28,14 @@
 // CUDA SIFT extractor by Marten Bjorkman aka Celebrandil //
 //********************************************************//
 
-// #ifndef CUDASIFTD_H
-// #define CUDASIFTD_H
 #pragma once
+
+#ifndef CUDASIFTD_H
+#define CUDASIFTD_H
 
 namespace open3d {
 namespace preimage {
+namespace image {
 namespace kernel {
 
 #define NUM_SCALES 5
@@ -86,84 +88,9 @@ namespace kernel {
 // ComputeOrientations:     numpts
 // ExtractSiftDescriptors:  numpts
 
-///////////////////////////////////////////////////////////////////////////////
-// Kernel configuration
-///////////////////////////////////////////////////////////////////////////////
-
-__constant__ int d_MaxNumPoints;
-__device__ unsigned int d_PointCounter[8 * 2 + 1];
-__constant__ float d_ScaleDownKernel[5];
-__constant__ float d_LowPassKernel[2 * LOWPASS_R + 1];
-__constant__ float d_LaplaceKernel[8 * 12 * 16];
-
-__global__ void ScaleDownDenseShift(float *d_Result,
-                                    float *d_Data,
-                                    int width,
-                                    int pitch,
-                                    int height,
-                                    int newpitch);
-
-__global__ void ScaleDownKernel(float *d_Result,
-                                float *d_Data,
-                                int width,
-                                int pitch,
-                                int height,
-                                int newpitch);
-
-__global__ void ScaleUpKernel(float *d_Result,
-                              float *d_Data,
-                              int width,
-                              int pitch,
-                              int height,
-                              int newpitch);
-
-__global__ void ComputeOrientationsCONST(cudaTextureObject_t texObj,
-                                         SiftPoint *d_Sift,
-                                         int octave);
-
-__global__ void ComputeOrientationsCONSTNew(
-        float *image, int w, int p, int h, SiftPoint *d_Sift, int octave);
-
-__global__ void ExtractSiftDescriptorsCONSTNew(cudaTextureObject_t texObj,
-                                               SiftPoint *d_sift,
-                                               float subsampling,
-                                               int octave);
-
-__global__ void OrientAndExtractCONST(cudaTextureObject_t texObj,
-                                      SiftPoint *d_Sift,
-                                      float subsampling,
-                                      int octave);
-
-__global__ void LowPassBlockOld(
-        float *d_Image, float *d_Result, int width, int pitch, int height);
-
-__global__ void LowPassBlock(
-        float *d_Image, float *d_Result, int width, int pitch, int height);
-
-__global__ void LaplaceMultiMem(float *d_Image,
-                                float *d_Result,
-                                int width,
-                                int pitch,
-                                int height,
-                                int octave);
-
-__global__ void FindPointsMultiNew(float *d_Data0,
-                                   SiftPoint *d_Sift,
-                                   int width,
-                                   int pitch,
-                                   int height,
-                                   float subsampling,
-                                   float lowestScale,
-                                   float thresh,
-                                   float factor,
-                                   float edgeLimit,
-                                   int octave);
-
-__global__ void RescalePositionsKernel(SiftPoint *d_sift,
-                                       int numPts,
-                                       float scale);
-// #endif
-
 }  // namespace kernel
+}  // namespace image
 }  // namespace preimage
 }  // namespace open3d
+
+#endif
