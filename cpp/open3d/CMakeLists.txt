@@ -62,6 +62,7 @@ open3d_ispc_target_sources_TARGET_OBJECTS(Open3D PRIVATE
     data
     geometry
     preimage_image
+    preimage_image_kernel
     tgeometry
     tgeometry_kernel
     io

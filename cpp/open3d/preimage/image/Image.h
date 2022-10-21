@@ -33,24 +33,12 @@
 
 #include "open3d/core/Dtype.h"
 #include "open3d/core/Tensor.h"
-#include "open3d/geometry/Image.h"
+#include "open3d/t/geometry/Image.h"
 
 namespace open3d {
 namespace preimage {
 
-class FeatureDetector {
-public:
-    FeatureDetector(const std::string& source_image_path,
-                    const std::string& output_feature_path = "out.bin");
-
-    virtual ~FeatureDetector() {}
-
-    void DetectAndSaveFeatures();
-
-protected:
-    std::string source_image_path_;
-    std::string output_feature_path_;
-};
+void RunFD();
 
 }  // namespace preimage
 }  // namespace open3d

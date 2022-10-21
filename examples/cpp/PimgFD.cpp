@@ -31,9 +31,6 @@
 using namespace open3d;
 
 int main() {
-    // t::geometry::Image image;
-    open3d::preimage::FeatureDetector fd("test.jpg");
-    fd.DetectAndSaveFeatures();
+    open3d::preimage::RunFD();
     return 0;
 }
-    

@@ -24,9 +24,8 @@
 // IN THE SOFTWARE.
 // ----------------------------------------------------------------------------
 
-#include "open3d/preimage/image/Image.h"
+#include "open3d/t/geometry/Image.h"
 
-#include <iostream>
 #include <limits>
 #include <memory>
 #include <string>
@@ -34,31 +33,51 @@
 
 #include "open3d/core/Dtype.h"
 #include "open3d/core/Tensor.h"
-#include "open3d/geometry/Image.h"
+#include "open3d/preimage/image/kernel/CudaSift/Image.h"
+#include "open3d/t/io/ImageIO.h"
+#include "open3d/utility/Logging.h"
 
 namespace open3d {
 namespace preimage {
 
-FeatureDetector::FeatureDetector(const std::string& source_image_path,
-                                 const std::string& output_feature_path)
-    : source_image_path_(source_image_path),
-      output_feature_path_(output_feature_path) {
-    std::cout << "Computing SIFT features for " << source_image_path_
-              << std::endl;
+void RunFD() {
+    std::string input_image_path =
+            "/home/rey/data/tmp/EP-11-16323_0011_0468.JPG";
+    std::string output_feature_path = "/home/rey/data/tmp/0.bin";
+
+    t::geometry::Image image;
+    core::Tensor image_tensor;
+    t::io::ReadImage(input_image_path, image);
+    image = image.Resize(0.5);
+    int64_t w = image.GetCols();
+    int64_t h = image.GetRows();
+
+    if (image.GetDtype() == core::Dtype::UInt8) {
+        utility::LogInfo("Image Dtype: {}, Shape: {}",
+                         image.AsTensor().GetDtype().ToString(),
+                         image.AsTensor().GetShape().ToString());
+
+        image_tensor = image.AsTensor()
+                               .To(core::Float32)
+                               .Mean({2}, false)
+                               .Flatten()
+                               .To(core::UInt8)
+                               .Contiguous();
+
+        utility::LogInfo("Image Tensor Dtype: {}, Shape: {}",
+                         image_tensor.GetDtype().ToString(),
+                         image_tensor.GetShape().ToString());
+    } else {
+        utility::LogError("Image Dtype: {} not supported",
+                          image.GetDtype().ToString());
+    }
+
+    open3d::preimage::kernel::FeatureDetector fd(input_image_path,
+                                                 output_feature_path);
+    unsigned int num_features =
+            fd.DetectAndSaveFeatures(image_tensor, w, h, output_feature_path);
+    std::cout << "Number of features: " << num_features << std::endl;
 }
-
-void FeatureDetector::DetectAndSaveFeatures() {
-    std::cout << "Features saved at " << output_feature_path_ << std::endl;
-}
-
-// FeatureDetector::FeatureDetector() {
-//     std::cout << "FeatureDetector created" << std::endl;
-// }
-
-// void DetectAndSaveFeatures(std::string image_path,
-//                            std::string out_feature_path) {
-//     std::cout << "DetectAndSaveFeatures called" << std::endl;
-// }
 
 }  // namespace preimage
 }  // namespace open3d

@@ -1,4 +1,4 @@
-# add_subdirectory(kernel)
+add_subdirectory(kernel)
 
 open3d_ispc_add_library(preimage_image OBJECT)
 
