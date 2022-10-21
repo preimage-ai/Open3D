@@ -37,8 +37,26 @@
 
 namespace open3d {
 namespace preimage {
+namespace image {
 
 void RunFD();
 
+///
+/// \class Image
+///
+/// \brief Image class for storing image data.
+/// \param tensor_images : Tensor of shape (NUM_IMAGES, HEIGHT, WIDTH) of
+/// stacked images of type uint8_t, shape {HEIGHT, WIDTH} (grayscale).
+/// \param output_feature_path : Path to output directory to dump npy files for
+/// each image by image_filenames as indexed.
+bool DetectAndSaveSIFTFeatures(const core::Tensor& tensor_images,
+                               const std::vector<std::string>& image_filenames,
+                               const float init_blur = 1.0,
+                               const float thresh = 1.0,
+                               const int octaves = 5,
+                               const float min_scale = 0.25,
+                               const bool upscale = false);
+
+}  // namespace image
 }  // namespace preimage
 }  // namespace open3d

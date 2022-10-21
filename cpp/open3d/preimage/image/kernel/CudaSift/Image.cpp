@@ -35,8 +35,10 @@
 
 // #include "open3d/core/Dtype.h"
 // #include "open3d/core/Tensor.h"
+#include "open3d/core/Tensor.h"
 #include "open3d/t/geometry/Image.h"
 #include "open3d/t/io/ImageIO.h"
+#include "open3d/utility/Logging.h"
 // #include <vips/vips.h>
 
 namespace open3d {
@@ -44,18 +46,57 @@ namespace preimage {
 namespace image {
 namespace kernel {
 
-FeatureDetector::FeatureDetector(const std::string &source_image_path,
-                                 const std::string &output_feature_path)
-    : source_image_path_(source_image_path),
-      output_feature_path_(output_feature_path) {
-    std::cout << "Computing SIFT features for " << source_image_path_
-              << std::endl;
+FeatureDetector::FeatureDetector(
+        const core::Tensor &images_tensor,
+        const std::vector<std::string> &output_filenames,
+        const float init_blur,
+        const float thresh,
+        const int octaves,
+        const float min_scale,
+        const bool upscale,
+        const int max_features)
+    : images_tensor_(images_tensor),
+      output_filenames_(output_filenames),
+      init_blur_(init_blur),
+      thresh_(thresh),
+      octaves_(octaves),
+      min_scale_(min_scale),
+      upscale_(upscale) {
+    const open3d::core::SizeVector images_tensor_shape =
+            images_tensor.GetShape();
+    num_images_ = images_tensor_shape[0];
+    height_ = images_tensor_shape[1];
+    width_ = images_tensor_shape[2];
+    pitch_ = iAlignUp(width_, 128);
+
+    if (!images_tensor_.GetDevice().IsCUDA()) {
+        utility::LogError("Feature Detection only supported on CUDA devices.");
+    }
+    // if (!images_tensor_.GetDtype() != core::Dtype::Float32) {
+    //     utility::LogError(
+    //             "Feature Detection only supports Float32 type
+    //             images_tensor.");
+    // }
+
     InitCuda(0);
-    uint num_features;
-    DetectAndSaveFeatures(source_image_path, 0, num_features);
-    std::cout << "Number of features detected: " << num_features << std::endl;
-    FreeSiftTempMemory(siftMemoryTmp_);
+    InitSiftData(siftData_, max_features, true, true);
+    if (upscale) {
+        siftMemoryTmp_ =
+                AllocSiftTempMemory(2 * width_, 2 * height_, octaves, false);
+    } else {
+        siftMemoryTmp_ = AllocSiftTempMemory(width_, height_, octaves, false);
+    }
+
+    for (int idx = 0; idx < num_images_; ++idx) {
+        auto tensor = images_tensor[idx].Flatten();
+        float *img = tensor.GetDataPtr<float_t>();
+        uint32_t num_features = DetectAndSaveFeatures(img, idx);
+        utility::LogDebug(" {} keypoints saved at {}.", num_features,
+                          output_filenames[idx]);
+    }
 }
+
+FeatureDetector::~FeatureDetector() { FreeSiftData(siftData_); }
 
 void FeatureDetector::SaveFeaturesBinFile(
         const std::string output_feature_path) {
@@ -92,35 +133,17 @@ void FeatureDetector::SaveFeaturesBinFile(
     fclose(file);
 }
 
-unsigned int FeatureDetector::DetectAndSaveFeatures(
-        std::string filename,
-        const unsigned int image_id,
-        unsigned int &num_features) {
-    t::geometry::Image image;
-    t::io::ReadImage(filename, image);
-    int w_ = image.GetCols();
-    int h_ = image.GetRows();
-
-    auto tensor = image.AsTensor()
-                          .To(core::Dtype::Float32)
-                          .Mean({2}, false)
-                          .Flatten()
-                          .To(core::Device("CUDA:0"), true);
-    std::cout << "tensor shape: " << tensor.GetShape().ToString() << std::endl;
-    float *dimg = tensor.GetDataPtr<float_t>();
+unsigned int FeatureDetector::DetectAndSaveFeatures(float *data_ptr,
+                                                    const int image_id) {
     CudaImage cudaImg;
-    cudaImg.Allocate(w_, h_, iAlignUp(w_, 128), false, dimg, NULL);
-    siftMemoryTmp_ = AllocSiftTempMemory(w_, h_, 5, false);
-    InitSiftData(siftData_, 32768, true, true);
-    std::cout << "extracting... " << std::endl;
-    ExtractSift(siftData_, cudaImg, 5, params_.initBlur, params_.thresh, 0.0f,
-                false, siftMemoryTmp_);
-    // saveBinFile(image_id, output_feature_path_);
-    num_features = siftData_.numPts;
-    std::cout << "extracted: " << num_features << std::endl;
-    
-    FreeSiftData(siftData_);
-    // firstDetection_ = false;
+    // TODO: Add pitch padding support in tensor manually to avoid
+    // re-allocations to cudaImg.
+    // TODO: Remove the need for cudaImg and use tensor directly.
+    cudaImg.Allocate(width_, height_, pitch_, false, data_ptr, NULL);
+    ExtractSift(siftData_, cudaImg, octaves_, init_blur_, thresh_, min_scale_,
+                upscale_, siftMemoryTmp_);
+    // SaveFeaturesBinFile(image_id, output_feature_path_);
+    int num_features = siftData_.numPts;
     return num_features;
 }
 

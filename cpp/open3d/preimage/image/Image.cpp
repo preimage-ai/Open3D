@@ -36,18 +36,29 @@
 #include "open3d/preimage/image/kernel/CudaSift/Image.h"
 #include "open3d/t/io/ImageIO.h"
 #include "open3d/utility/Logging.h"
+#include "open3d/utility/Timer.h"
 
 namespace open3d {
 namespace preimage {
+namespace image {
 
-void RunFD() {
-    std::string input_image_path =
-            "/home/rey/data/tmp/EP-11-16323_0011_0468.JPG";
-    std::string output_feature_path = "/home/rey/data/tmp/0.bin";
-
-    open3d::preimage::image::kernel::FeatureDetector fd(input_image_path,
-                                                        output_feature_path);
+bool DetectAndSaveSIFTFeatures(const core::Tensor& tensor_images,
+                               const std::vector<std::string>& output_filenames,
+                               const float init_blur,
+                               const float thresh,
+                               const int octaves,
+                               const float min_scale,
+                               const bool upscale) {
+    utility::Timer timer;
+    timer.Start();
+    open3d::preimage::image::kernel::FeatureDetector fd(tensor_images,
+                                                        output_filenames);
+    timer.Stop();
+    utility::LogInfo("FeatureDetector took {} ms",
+                     timer.GetDurationInMillisecond());
+    return false;
 }
 
+}  // namespace image
 }  // namespace preimage
 }  // namespace open3d

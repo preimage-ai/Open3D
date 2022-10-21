@@ -37,33 +37,40 @@ namespace preimage {
 namespace image {
 namespace kernel {
 
-struct FeatureDetectorParams {
-    float initBlur = 1.0;
-    float thresh = 1.0;
-    int octaves = 5;
-    float minScale = 0.25;
-    bool upscale = false;
-};
-
 class FeatureDetector {
 public:
-    FeatureDetector(const std::string& source_image_path,
-                    const std::string& output_feature_path = "out.bin");
+    FeatureDetector(const core::Tensor& images_tensor_,
+                    const std::vector<std::string>& output_filenames,
+                    const float init_blur = 1.0,
+                    const float thresh = 1.0,
+                    const int octaves = 5,
+                    const float min_scale = 0.0,
+                    const bool upscale = false,
+                    const int max_features = 32768);
 
-    virtual ~FeatureDetector() {}
+    ~FeatureDetector();
 
-    unsigned int DetectAndSaveFeatures(std::string filename,
-                                       const unsigned int image_id,
-                                       unsigned int& num_features);
+    unsigned int DetectAndSaveFeatures(float* data_ptr, const int image_id);
 
     void SaveFeaturesBinFile(const std::string output_feature_path);
 
 private:
-    FeatureDetectorParams params_;
+    core::Tensor images_tensor_;
+    std::vector<std::string> output_filenames_;
+
+    float init_blur_;
+    float thresh_;
+    int octaves_;
+    float min_scale_;
+    bool upscale_;
+
+    int num_images_ = 0;
+    int height_ = 0;
+    int width_ = 0;
+    int pitch_ = 0;
+
     SiftData siftData_;
     float* siftMemoryTmp_;
-    std::string source_image_path_;
-    std::string output_feature_path_;
 };
 
 }  // namespace kernel
