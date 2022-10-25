@@ -55,7 +55,8 @@ bool DetectAndSaveSIFTFeatures(const core::Tensor& tensor_images,
                                const float thresh = 1.0,
                                const int octaves = 5,
                                const float min_scale = 0.25,
-                               const bool upscale = false);
+                               const bool upscale = false,
+                               const int max_features = 32768);
 
 }  // namespace image
 }  // namespace preimage

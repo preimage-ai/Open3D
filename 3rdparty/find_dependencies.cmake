@@ -734,6 +734,29 @@ else()
     list(APPEND Open3D_3RDPARTY_PRIVATE_TARGETS_FROM_SYSTEM Open3D::3rdparty_jpeg)
 endif()
 
+# opencv
+# if(USE_SYSTEM_OPENCV)
+#     open3d_find_package_3rdparty_library(3rdparty_opencv
+#         PACKAGE opencv
+#         TARGETS opencv_lib
+#     )
+#     if(NOT 3rdparty_opencv_FOUND)
+#         set(USE_SYSTEM_OPENCV OFF)
+#     endif()
+# endif()
+# if(NOT USE_SYSTEM_OPENCV)
+#     include(${Open3D_3RDPARTY_DIR}/opencv/opencv.cmake)
+#     open3d_import_3rdparty_library(3rdparty_opencv
+#         INCLUDE_DIRS ${OPENCV_INCLUDE_DIRS}
+#         LIB_DIR      ${OPENCV_LIB_DIR}
+#         LIBRARIES    ${OPENCV_LIBRARIES}
+#         DEPENDS      ext_opencv
+#     )
+#     list(APPEND Open3D_3RDPARTY_PRIVATE_TARGETS_FROM_CUSTOM Open3D::3rdparty_opencv)
+# else()
+#     list(APPEND Open3D_3RDPARTY_PRIVATE_TARGETS_FROM_SYSTEM Open3D::3rdparty_opencv)
+# endif()
+
 # jsoncpp
 if(USE_SYSTEM_JSONCPP)
     open3d_find_package_3rdparty_library(3rdparty_jsoncpp

@@ -50,7 +50,7 @@ public:
 
     ~FeatureDetector();
 
-    unsigned int DetectAndSaveFeatures(float* data_ptr, const int image_id);
+    size_t DetectAndSaveFeatures(float* data_ptr, const int image_id);
 
     void SaveFeaturesBinFile(const std::string output_feature_path);
 

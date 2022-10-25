@@ -43,7 +43,7 @@ void PrintHelp() {
 
     // clang-format off
     utility::LogInfo("Usage:");
-    utility::LogInfo("    > PimgFD --dataset_name dataset --chunk_json_path dataset_detection_chunk_X.json --device CUDA:0");
+    utility::LogInfo("    > PimgFM --dataset_name dataset --chunk_json_path dataset_detection_chunk_X.json --device CUDA:0");
     // clang-format on
     utility::LogInfo("");
 }

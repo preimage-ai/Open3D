@@ -79,19 +79,18 @@ FeatureDetector::FeatureDetector(
     // }
 
     InitCuda(0);
+    // Init Sift Data and Allocate memory. This memory is re-used for all
+    // images.
     InitSiftData(siftData_, max_features, true, true);
-    if (upscale) {
-        siftMemoryTmp_ =
-                AllocSiftTempMemory(2 * width_, 2 * height_, octaves, false);
-    } else {
-        siftMemoryTmp_ = AllocSiftTempMemory(width_, height_, octaves, false);
-    }
+    siftMemoryTmp_ =
+            AllocSiftTempMemory(2 * width_, 2 * height_, octaves, upscale);
 
+    // Run feature detection on all images.
     for (int idx = 0; idx < num_images_; ++idx) {
         auto tensor = images_tensor[idx].Flatten();
         float *img = tensor.GetDataPtr<float_t>();
         uint32_t num_features = DetectAndSaveFeatures(img, idx);
-        utility::LogDebug(" {} keypoints saved at {}.", num_features,
+        utility::LogDebug(" {} keypoints saved in {}.", num_features,
                           output_filenames[idx]);
     }
 }
@@ -133,8 +132,8 @@ void FeatureDetector::SaveFeaturesBinFile(
     fclose(file);
 }
 
-unsigned int FeatureDetector::DetectAndSaveFeatures(float *data_ptr,
-                                                    const int image_id) {
+size_t FeatureDetector::DetectAndSaveFeatures(float *data_ptr,
+                                              const int image_id) {
     CudaImage cudaImg;
     // TODO: Add pitch padding support in tensor manually to avoid
     // re-allocations to cudaImg.
@@ -142,8 +141,9 @@ unsigned int FeatureDetector::DetectAndSaveFeatures(float *data_ptr,
     cudaImg.Allocate(width_, height_, pitch_, false, data_ptr, NULL);
     ExtractSift(siftData_, cudaImg, octaves_, init_blur_, thresh_, min_scale_,
                 upscale_, siftMemoryTmp_);
-    // SaveFeaturesBinFile(image_id, output_feature_path_);
-    int num_features = siftData_.numPts;
+    const size_t num_features = static_cast<size_t>(siftData_.numPts);
+
+    SaveFeaturesBinFile(output_filenames_[image_id]);
     return num_features;
 }
 

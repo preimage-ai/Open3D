@@ -24,8 +24,8 @@
 // IN THE SOFTWARE.
 // ----------------------------------------------------------------------------
 
-#include "cudaSift.h"
-#include "cudautils.h"
+#include "open3d/preimage/image/kernel/CudaSift/cudaSift.h"
+#include "open3d/preimage/image/kernel/CudaSift/cudautils.h"
 
 //================= Device matching functions =====================//
 
