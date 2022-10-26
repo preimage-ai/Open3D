@@ -35,6 +35,7 @@
 #include <iostream>
 
 #include "cudaSiftD.cu"
+#include "open3d/core/CUDAUtils.h"
 #include "open3d/preimage/image/kernel/CudaSift/cudaImage.h"
 #include "open3d/preimage/image/kernel/CudaSift/cudaSift.h"
 #include "open3d/preimage/image/kernel/CudaSift/cudaSiftD.h"
@@ -615,6 +616,13 @@ double FindPointsMulti(CudaImage *sources,
 #endif
     checkMsg("FindPointsMulti() execution failed\n");
     return 0.0;
+}
+
+void CopySift(SiftData &siftData) {
+    int num = siftData.numPts;
+    cudaError_t err =
+            cudaMemcpy(siftData.d_data, siftData.h_data,
+                       sizeof(SiftPoint) * num, cudaMemcpyHostToDevice);
 }
 
 }  // namespace kernel

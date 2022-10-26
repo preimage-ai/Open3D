@@ -15,10 +15,10 @@
 #include <iomanip>
 #include <iostream>
 #include <mutex>
-#include <opencv4/opencv2/opencv.hpp>
 #include <set>
 // #include "json.hpp"
 
+#include "open3d/core/Tensor.h"
 #include "open3d/preimage/image/kernel/CudaSift/cudaImage.h"
 #include "open3d/preimage/image/kernel/CudaSift/cudaSift.h"
 
@@ -33,59 +33,55 @@ struct CamIntrinsics {
 
 class FeatureMatcher {
 public:
-    FeatureMatcher(std::string egfile_path,
-                   std::string trackinfo_path,
-                   std::string dist_params_path,
-                   std::string chunk_dir,
-                   bool distortion = true);
+    /// \brief Match features between pairs of images.
+    ///
+    /// \param image_id_to_cam_params: map from image_id to camera parameters,
+    /// where camera parameters are [fx, fy, cx, cy, k1, k2, p1, p2, k3].
+    FeatureMatcher(
+            const std::vector<int>& image_ids,
+            const std::vector<std::pair<int, int>>& match_pairs,
+            const std::unordered_map<int, std::vector<double>>&
+                    image_id_to_cam_params,
+            const std::unordered_map<int, std::string>& path_to_keypoints_files,
+            const std::string& path_to_output_eg_file,
+            const std::string& path_to_output_trackinfo_file,
+            const double desc_thres = 0.85,
+            const double max_ratio = 0.95,
+            const double desc_thres_guided = 0.85,
+            const double max_ratio_guided = 0.95,
+            const bool undistort = true,
+            const int device_id = 0);
+
     ~FeatureMatcher();
-    void readPairsJson(const std::string path);
+
+    void Run();
 
 private:
-    std::map<int, int> num_features_map_;
-    std::map<int, SiftData> s_kpts_;
-    std::mutex file_lock_;
-    std::vector<double> dist_params_;
-    std::string egfile_path_;
-    std::string ffile_path_;
-    std::string trackinfo_path_;
-    std::string coords_path_;
-    std::string chunk_dir_, json_path_;
-    CamIntrinsics cam_intrinsics_;
-    void undistortKpts(uint num,
-                       float* kpts,
-                       double K_arr[3][3],
-                       cv::Vec<double, 5> dist_coeff);
-    // void freeKptsData(const nlohmann::json &j);
-    std::string saveTrackInfo(int id1, int id2, const SiftData& s);
-    void matchPairs();
-    void readBinFiles(const std::string folder, std::vector<int>& ids);
-    std::string logEG(int id1,
-                      int id2,
-                      cv::Mat local_R,
-                      cv::Mat local_t,
-                      int inliers,
-                      double angle);
-    void logF(int id1, int id2, cv::Mat F, int inliers);
+    std::vector<int> image_ids_;
+    std::vector<std::pair<int, int>> match_pairs_;
+    std::unordered_map<int, int> image_id_to_index_;
+    std::unordered_map<int, std::vector<double>> image_id_to_cam_params_;
+    std::unordered_map<int, std::string> path_to_keypoints_files_;
+    std::string path_to_output_eg_file_;
+    std::string path_to_output_trackinfo_file_;
+    double desc_thres_;
+    double max_ratio_;
+    double desc_thres_guided_;
+    double max_ratio_guided_;
+    bool undistort_;
+    int device_id_;
+
+    std::unordered_map<int, int> num_features_map_;
+    std::unordered_map<int, SiftData> s_kpts_;
+
+    void LoadKeypointsFromBIN();
+
     int ImproveHomography(SiftData& data,
                           float* homography,
                           int numLoops,
                           float minScore,
                           float maxAmbiguity,
                           float thresh);
-    void AverageTriangulationAngle(cv::Mat& local_R,
-                                   cv::Mat& local_t,
-                                   cv::Mat& K,
-                                   std::vector<cv::Point2d>& pts1,
-                                   std::vector<cv::Point2d>& pts2,
-                                   double& angle,
-                                   cv::Mat& mask,
-                                   bool homog_fit,
-                                   std::vector<int> homog_match_error);
-    void GetEpipolarError(cv::Mat& F,
-                          cv::Vec3d& pt1,
-                          cv::Vec3d& pt2,
-                          double& ep);
 };
 
 }  // namespace kernel

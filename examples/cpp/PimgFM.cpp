@@ -48,7 +48,84 @@ void PrintHelp() {
     utility::LogInfo("");
 }
 
-int main(int argc, char *argv[]) {
+std::unordered_map<int, std::vector<double>> GetCameraParamsFromInfoFiles(
+        std::vector<int>& image_ids,
+        std::string images_info_path,
+        std::string cameras_info_path) {
+    using json = nlohmann::json;
+
+    std::ifstream images_info_stream(images_info_path);
+    json images_info;
+    images_info_stream >> images_info;
+
+    std::ifstream cameras_info_stream(cameras_info_path);
+    json cameras_info;
+    cameras_info_stream >> cameras_info;
+
+    std::unordered_map<int, std::vector<double>> image_id_to_camera_params;
+    for (auto image_id : image_ids) {
+        int cam_id = images_info[std::to_string(image_id)]["cam_id"];
+        const std::string cam_id_str = std::to_string(cam_id);
+        double resize_factor =
+                static_cast<double>(cameras_info[cam_id_str]["resize_factor"]);
+        std::vector<double> cam_params(11, 0);
+        cam_params[0] =
+                static_cast<double>(cameras_info[cam_id_str]["width_px"]) /
+                resize_factor;
+        cam_params[1] =
+                static_cast<double>(cameras_info[cam_id_str]["height_px"]) /
+                resize_factor;
+
+        if (cameras_info[cam_id_str]["intrinsics"].size()) {
+            cam_params[2] = static_cast<double>(
+                                    cameras_info[cam_id_str]["intrinsics"][0]) /
+                            resize_factor;
+            cam_params[3] = static_cast<double>(
+                                    cameras_info[cam_id_str]["intrinsics"][1]) /
+                            resize_factor;
+            cam_params[4] = static_cast<double>(
+                                    cameras_info[cam_id_str]["intrinsics"][2]) /
+                            resize_factor;
+            cam_params[5] = static_cast<double>(
+                                    cameras_info[cam_id_str]["intrinsics"][3]) /
+                            resize_factor;
+        } else if (cameras_info[cam_id_str]["exif_intrinsics"].size()) {
+            cam_params[2] =
+                    static_cast<double>(
+                            cameras_info[cam_id_str]["exif_intrinsics"][0]) /
+                    resize_factor;
+            cam_params[3] =
+                    static_cast<double>(
+                            cameras_info[cam_id_str]["exif_intrinsics"][1]) /
+                    resize_factor;
+            cam_params[4] =
+                    static_cast<double>(
+                            cameras_info[cam_id_str]["exif_intrinsics"][2]) /
+                    resize_factor;
+            cam_params[5] =
+                    static_cast<double>(
+                            cameras_info[cam_id_str]["exif_intrinsics"][3]) /
+                    resize_factor;
+        } else {
+            utility::LogError("Camera parameters not found for camera id {}.",
+                              cam_id_str);
+        }
+
+        if (cameras_info[cam_id_str]["distortion_params"].size()) {
+            cam_params[6] = cameras_info[cam_id_str]["distortion_params"][0];
+            cam_params[7] = cameras_info[cam_id_str]["distortion_params"][1];
+            cam_params[8] = cameras_info[cam_id_str]["distortion_params"][2];
+            cam_params[9] = cameras_info[cam_id_str]["distortion_params"][3];
+            cam_params[10] = cameras_info[cam_id_str]["distortion_params"][4];
+        }
+
+        image_id_to_camera_params[image_id] = cam_params;
+    }
+
+    return image_id_to_camera_params;
+}
+
+int main(int argc, char* argv[]) {
     using namespace open3d;
     using json = nlohmann::json;
 
@@ -60,45 +137,61 @@ int main(int argc, char *argv[]) {
 
     std::string dataset_name =
             utility::GetProgramOptionAsString(argc, argv, "--dataset_name", "");
-    std::string chunk_json_path = utility::GetProgramOptionAsString(
-            argc, argv, "--chunk_json_path", "");
-    std::string device =
-            utility::GetProgramOptionAsString(argc, argv, "--device", "CUDA:0");
+    std::string chunk_info_path =
+            utility::GetProgramOptionAsString(argc, argv, "--chunk_info", "");
+    std::string images_info_path =
+            utility::GetProgramOptionAsString(argc, argv, "--images_info", "");
+    std::string cameras_info_path =
+            utility::GetProgramOptionAsString(argc, argv, "--cameras_info", "");
 
     utility::SetVerbosityLevel(utility::VerbosityLevel::Debug);
 
-    std::ifstream datasrc(chunk_json_path);
-    json j;
-    datasrc >> j;
-    std::cout << "Found " << j["image_ids"].size()
-              << " images for current chunk. " << std::endl;
+    // TODO: Add sanity checks.
+    // 		 - Check if files exists.
+    // 		 - Sanity checks on image_ids and num_images.
+    std::ifstream chunk_info_stream(chunk_info_path);
+    json chunk_info;
+    chunk_info_stream >> chunk_info;
 
-    open3d::core::Tensor images_tensor =
-            open3d::core::Tensor::Load(j["medimgs_path"]);
-    std::cout << "Shape of medimgs: " << images_tensor.GetShape().ToString()
-              << std::endl;
+    const size_t num_images = chunk_info["matched_images"].size();
 
-    std::vector<std::string> out_filename;
-    for (auto it : j["image_ids"]) {
-        std::string out_string = std::string(j["keypoints_path"]) + "/kpts_" +
-                                 std::to_string(static_cast<int>(it)) + ".bin";
-        out_filename.push_back(out_string);
+    // Get image_ids and path_to_keypoints.
+    std::vector<int> image_ids;
+    image_ids.reserve(num_images);
+    std::unordered_map<int, std::string> path_to_keypoints_files;
+    path_to_keypoints_files.reserve(num_images);
+    std::string kpts_root_dir =
+            static_cast<std::string>(chunk_info["kpts_folder"]);
+    for (size_t i = 0; i < num_images; i++) {
+        const int image_id = chunk_info["matched_images"][i];
+        image_ids.push_back(image_id);
+        const std::string path_to_kpt =
+                kpts_root_dir + "kpts_" + std::to_string(image_id) + ".bin";
+        path_to_keypoints_files[image_id] = path_to_kpt;
     }
-    const float init_blur = static_cast<float>(j["sift_init_blur"]);
-    const float thresh = static_cast<float>(j["sift_thres"]);
-    const int octaves = static_cast<int>(j["sift_octaves"]);
-    const float min_scale = static_cast<float>(j["sift_min_scale"]);
-    const bool upscale = static_cast<bool>(j["sift_upscale"]);
-    const int max_num_keypoints = static_cast<int>(j["sift_max_keypoints"]);
 
-    // Handle this float32, grayscale conversion in previous node.
-    auto tensor = images_tensor.To(core::Dtype::Float32)
-                          .Mean({3}, false)
-                          .To(core::Device("CUDA:0"), true);
+    auto image_id_to_cam_params = GetCameraParamsFromInfoFiles(
+            image_ids, images_info_path, cameras_info_path);
 
-    open3d::preimage::image::DetectAndSaveSIFTFeatures(
-            tensor, out_filename, init_blur, thresh, octaves, min_scale,
-            upscale, max_num_keypoints);
+    // Get image match pairs.
+    std::vector<std::pair<int, int>> match_pairs;
+    const size_t num_pairs = chunk_info["image_pairs"].size() / 2;
+    match_pairs.reserve(num_pairs);
+    for (size_t i = 0; i < num_pairs; i++) {
+        match_pairs.push_back(
+                std::make_pair(chunk_info["image_pairs"][2 * i],
+                               chunk_info["image_pairs"][2 * i + 1]));
+    }
+
+    const std::string path_to_output_eg_file = "/home/rey/eg_test.json";
+    const std::string path_to_output_trackinfo_file =
+            "/home/rey/trackinfo_test.json";
+
+    open3d::preimage::image::MatchFeatures(
+            image_ids, match_pairs, image_id_to_cam_params,
+            path_to_keypoints_files, path_to_output_eg_file,
+            path_to_output_trackinfo_file, 0.85, 0.95, 0.85, 0.95, false, 0);
+
     return 0;
 }
 

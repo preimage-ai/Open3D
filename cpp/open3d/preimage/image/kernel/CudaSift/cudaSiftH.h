@@ -87,6 +87,8 @@ double FindPointsMulti(CudaImage *sources,
                        float subsampling,
                        int octave);
 
+void CopySift(SiftData &siftData);
+
 }  // namespace kernel
 }  // namespace image
 }  // namespace preimage

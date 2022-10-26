@@ -3,7 +3,8 @@ add_subdirectory(kernel)
 open3d_ispc_add_library(preimage_image OBJECT)
 
 find_package (OpenCV REQUIRED)
-include_directories ("/usr/include/opencv4/")
+message(STATUS "---- OpenCV LIBS: ${OpenCV_LIBS}")
+# include_directories ("/usr/include/opencv4/")
 
 target_sources(preimage_image PRIVATE
     Image.cpp

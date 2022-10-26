@@ -47,16 +47,28 @@ void RunFD();
 /// \brief Image class for storing image data.
 /// \param tensor_images : Tensor of shape (NUM_IMAGES, HEIGHT, WIDTH) of
 /// stacked images of type uint8_t, shape {HEIGHT, WIDTH} (grayscale).
-/// \param output_feature_path : Path to output directory to dump npy files for
-/// each image by image_filenames as indexed.
 bool DetectAndSaveSIFTFeatures(const core::Tensor& tensor_images,
-                               const std::vector<std::string>& image_filenames,
+                               const std::vector<std::string>& output_filenames,
                                const float init_blur = 1.0,
                                const float thresh = 1.0,
                                const int octaves = 5,
                                const float min_scale = 0.25,
                                const bool upscale = false,
                                const int max_features = 32768);
+
+bool MatchFeatures(const std::vector<int>& image_ids,
+        const std::vector<std::pair<int, int>> &match_pairs,
+            const std::unordered_map<int, std::vector<double>>&
+                    image_id_to_cam_params,
+            const std::unordered_map<int, std::string>& path_to_keypoints_files,
+            const std::string& path_to_output_eg_file,
+            const std::string& path_to_output_trackinfo_file,
+            const double desc_thres = 0.85,
+            const double max_ratio = 0.95,
+            const double desc_thres_guided = 0.85,
+            const double max_ratio_guided = 0.95,
+            const bool undistort = true,
+            const int device_id = 0);
 
 }  // namespace image
 }  // namespace preimage

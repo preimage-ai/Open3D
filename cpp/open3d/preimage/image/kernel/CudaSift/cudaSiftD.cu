@@ -32,6 +32,8 @@
 #include "open3d/preimage/image/kernel/CudaSift/cudaSiftD.h"
 #include "open3d/preimage/image/kernel/CudaSift/cudautils.h"
 
+#include "open3d/core/CUDAUtils.h"
+
 namespace open3d {
 namespace preimage {
 namespace image {

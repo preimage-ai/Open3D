@@ -36,6 +36,8 @@
 #include <intrin.h>
 #endif
 
+#include "open3d/core/CUDAUtils.h"
+
 namespace open3d {
 namespace preimage {
 namespace image {

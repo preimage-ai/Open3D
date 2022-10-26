@@ -34,7 +34,8 @@
 
 #include "open3d/core/Dtype.h"
 #include "open3d/core/Tensor.h"
-#include "open3d/preimage/image/kernel/CudaSift/Image.h"
+#include "open3d/preimage/image/kernel/CudaSift/FeatureDetector.h"
+#include "open3d/preimage/image/kernel/CudaSift/FeatureMatcher.h"
 #include "open3d/t/io/ImageIO.h"
 #include "open3d/utility/Logging.h"
 #include "open3d/utility/Timer.h"
@@ -63,15 +64,41 @@ bool DetectAndSaveSIFTFeatures(const core::Tensor& tensor_images,
     return true;
 }
 
+bool MatchFeatures(
+        const std::vector<int>& image_ids,
+        const std::vector<std::pair<int, int>>& match_pairs,
+        const std::unordered_map<int, std::vector<double>>&
+                image_id_to_cam_params,
+        const std::unordered_map<int, std::string>& path_to_keypoints_files,
+        const std::string& path_to_output_eg_file,
+        const std::string& path_to_output_trackinfo_file,
+        const double desc_thres,
+        const double max_ratio,
+        const double desc_thres_guided,
+        const double max_ratio_guided,
+        const bool undistort,
+        const int device_id) {
+    utility::Timer timer;
+    timer.Start();
+    open3d::preimage::image::kernel::FeatureMatcher fd(
+            image_ids, match_pairs, image_id_to_cam_params,
+            path_to_keypoints_files, path_to_output_eg_file,
+            path_to_output_trackinfo_file, desc_thres, max_ratio,
+            desc_thres_guided, max_ratio_guided, undistort, device_id);
+    fd.Run();
+
+    timer.Stop();
+    utility::LogInfo("FeatureMatcher took {} ms",
+                     timer.GetDurationInMillisecond());
+    // TODO: Add checks to kernel, and return false if something goes wrong.
+    return true;
+}
 /*
 idx_to_image_id : list of indices of images, size: num_images
 path_to_medimgs : path to medimgs
-        medimgs : shape (num_images, height, width) of type float32, range [0,1], grayscale.
-path_to_keypoints[image_id] : path to keypoints for image_id
+        medimgs : shape (num_images, height, width) of type float32, range
+[0,1], grayscale. path_to_keypoints[image_id] : path to keypoints for image_id
         siftData_[idx]
-
-
-
 */
 
 // bool MatchKeypointsBetweenImagePairs(

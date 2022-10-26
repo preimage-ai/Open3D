@@ -43,7 +43,7 @@ void PrintHelp() {
 
     // clang-format off
     utility::LogInfo("Usage:");
-    utility::LogInfo("    > PimgFD --dataset_name dataset --chunk_json_path dataset_detection_chunk_X.json --device CUDA:0");
+    utility::LogInfo("    > PimgFD --dataset_name dataset --chunk_path dataset_detection_chunk_X.json");
     // clang-format on
     utility::LogInfo("");
 }
@@ -60,10 +60,8 @@ int main(int argc, char *argv[]) {
 
     std::string dataset_name =
             utility::GetProgramOptionAsString(argc, argv, "--dataset_name", "");
-    std::string chunk_json_path = utility::GetProgramOptionAsString(
-            argc, argv, "--chunk_json_path", "");
-    std::string device =
-            utility::GetProgramOptionAsString(argc, argv, "--device", "CUDA:0");
+    std::string chunk_json_path =
+            utility::GetProgramOptionAsString(argc, argv, "--chunk_path", "");
 
     utility::SetVerbosityLevel(utility::VerbosityLevel::Debug);
 

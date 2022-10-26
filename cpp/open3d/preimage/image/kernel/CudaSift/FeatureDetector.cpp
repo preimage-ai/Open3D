@@ -24,7 +24,7 @@
 // IN THE SOFTWARE.
 // ----------------------------------------------------------------------------
 
-#include "open3d/preimage/image/kernel/CudaSift/Image.h"
+#include "open3d/preimage/image/kernel/CudaSift/FeatureDetector.h"
 
 #include <iostream>
 #include <numeric>

@@ -7,12 +7,12 @@ if (BUILD_CUDA_MODULE)
         CudaSift/cudaImage.cu 
         CudaSift/cudaSiftD.cu
         CudaSift/cudaSiftH.cu
-        # CudaSift/matching.cu
+        CudaSift/matching.cu
     )
 endif()
 
 target_sources(preimage_image_kernel PRIVATE
-        CudaSift/Image.cpp
+        CudaSift/FeatureDetector.cpp
         CudaSift/FeatureMatcher.cpp
 )
 
@@ -20,7 +20,7 @@ open3d_show_and_abort_on_warning(preimage_image_kernel)
 open3d_set_global_properties(preimage_image_kernel)
 open3d_set_open3d_lib_properties(preimage_image_kernel)
 open3d_link_3rdparty_libraries(preimage_image_kernel)
-target_link_libraries(preimage_image_kernel PUBLIC ${OpenCV_LIBS})
+# target_link_libraries(preimage_image_kernel PUBLIC ${OpenCV_LIBS})
 
 if(BUILD_CUDA_MODULE)
     target_include_directories(preimage_image_kernel SYSTEM PRIVATE ${CMAKE_CUDA_TOOLKIT_INCLUDE_DIRECTORIES})
