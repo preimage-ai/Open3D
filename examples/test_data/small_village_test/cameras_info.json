@@ -1,0 +1,19 @@
+{
+    "0": {
+        "make": "senseFly",
+        "model": "S.O.D.A.",
+        "cam_type": 0,
+        "width_px": 5472,
+        "height_px": 3648,
+        "resize_factor": 0.25,
+        "num_images": 100,
+        "exif_intrinsics": [
+            4167.0,
+            4167.0,
+            2736.0,
+            1824.0
+        ],
+        "intrinsics:": [],
+        "distortion_params": []
+    }
+}

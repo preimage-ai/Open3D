@@ -1,0 +1,1902 @@
+{
+    "0": {
+        "name": "EP-11-16323_0011_0370.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0370.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59843883333333,
+            6.618927111111112,
+            -862.003
+        ],
+        "enu": [
+            0,
+            0,
+            0
+        ],
+        "gcp_id": -1
+    },
+    "1": {
+        "name": "EP-11-16323_0011_0371.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0371.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.598646305555555,
+            6.618266305555556,
+            -861.738
+        ],
+        "enu": [
+            -50.62650597063529,
+            23.06032790138837,
+            0.2647576523239277
+        ],
+        "gcp_id": -1
+    },
+    "2": {
+        "name": "EP-11-16323_0011_0372.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0372.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59885805555556,
+            6.617611666666667,
+            -862.7
+        ],
+        "enu": [
+            -100.78015537024653,
+            46.596532259878025,
+            -0.6979653791264155
+        ],
+        "gcp_id": -1
+    },
+    "3": {
+        "name": "EP-11-16323_0011_0373.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0373.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59906041666667,
+            6.616942388888889,
+            -862.289
+        ],
+        "enu": [
+            -152.054982606624,
+            69.08963404157285,
+            -0.2881843129650363
+        ],
+        "gcp_id": -1
+    },
+    "4": {
+        "name": "EP-11-16323_0011_0374.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0374.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59926630555556,
+            6.616278833333333,
+            -861.273
+        ],
+        "enu": [
+            -202.891047234153,
+            91.97527405685928,
+            0.7261140675798998
+        ],
+        "gcp_id": -1
+    },
+    "5": {
+        "name": "EP-11-16323_0011_0375.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0375.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59984052777778,
+            6.616527222222222,
+            -872.122
+        ],
+        "enu": [
+            -183.85911148917864,
+            155.7980483255539,
+            -10.12355144812409
+        ],
+        "gcp_id": -1
+    },
+    "6": {
+        "name": "EP-11-16323_0011_0376.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0376.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59960055555556,
+            6.617153777777778,
+            -870.552
+        ],
+        "enu": [
+            -135.85837751802816,
+            129.124423306853,
+            -8.551753645620309
+        ],
+        "gcp_id": -1
+    },
+    "7": {
+        "name": "EP-11-16323_0011_0377.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0377.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.599373,
+            6.6178173055555565,
+            -871.278
+        ],
+        "enu": [
+            -85.02462193809862,
+            103.83117556099354,
+            -9.276412243099827
+        ],
+        "gcp_id": -1
+    },
+    "8": {
+        "name": "EP-11-16323_0011_0378.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0378.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59918236111111,
+            6.6184857500000005,
+            -871.245
+        ],
+        "enu": [
+            -33.81375524158962,
+            82.64157633294808,
+            -9.24262570746231
+        ],
+        "gcp_id": -1
+    },
+    "9": {
+        "name": "EP-11-16323_0011_0379.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0379.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59897208333334,
+            6.619161833333334,
+            -871.833
+        ],
+        "enu": [
+            17.982711991652373,
+            59.26958811053595,
+            -9.830301118322293
+        ],
+        "gcp_id": -1
+    },
+    "10": {
+        "name": "EP-11-16323_0011_0380.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0380.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.598786861111115,
+            6.619823388888889,
+            -871.111
+        ],
+        "enu": [
+            68.66653583932198,
+            38.68291385222619,
+            -9.108486511226001
+        ],
+        "gcp_id": -1
+    },
+    "11": {
+        "name": "EP-11-16323_0011_0381.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0381.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59856663888889,
+            6.620474722222223,
+            -869.695
+        ],
+        "enu": [
+            118.5676478296771,
+            14.20647331306337,
+            -7.693116115464473
+        ],
+        "gcp_id": -1
+    },
+    "12": {
+        "name": "EP-11-16323_0011_0382.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0382.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59836655555556,
+            6.62115263888889,
+            -870.833
+        ],
+        "enu": [
+            170.5057014371633,
+            -8.031110456247621,
+            -8.832280394059405
+        ],
+        "gcp_id": -1
+    },
+    "13": {
+        "name": "EP-11-16323_0011_0383.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0383.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59901994444445,
+            6.620968694444445,
+            -871.639
+        ],
+        "enu": [
+            156.4111549548804,
+            64.59124517944983,
+            -9.638242270691876
+        ],
+        "gcp_id": -1
+    },
+    "14": {
+        "name": "EP-11-16323_0011_0384.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0384.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59925633333334,
+            6.620314250000001,
+            -871.467
+        ],
+        "enu": [
+            106.27195787897672,
+            90.86426404933599,
+            -9.465532137377117
+        ],
+        "gcp_id": -1
+    },
+    "15": {
+        "name": "EP-11-16323_0011_0385.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0385.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59945316666667,
+            6.619618916666667,
+            -869.678
+        ],
+        "enu": [
+            53.00066620062236,
+            112.74118814427621,
+            -7.6762178080066406
+        ],
+        "gcp_id": -1
+    },
+    "16": {
+        "name": "EP-11-16323_0011_0386.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0386.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.599662388888895,
+            6.6189575000000005,
+            -871.905
+        ],
+        "enu": [
+            2.328146373356846,
+            135.99550843753602,
+            -9.903452522523253
+        ],
+        "gcp_id": -1
+    },
+    "17": {
+        "name": "EP-11-16323_0011_0387.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0387.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.599914472222224,
+            6.618100444444445,
+            -871.568
+        ],
+        "enu": [
+            -63.332100909121294,
+            164.0143601178008,
+            -9.567425995785456
+        ],
+        "gcp_id": -1
+    },
+    "18": {
+        "name": "EP-11-16323_0011_0388.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0388.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.600138388888894,
+            6.617433361111112,
+            -871.07
+        ],
+        "enu": [
+            -114.43783473270196,
+            188.9029772026746,
+            -9.070826674290288
+        ],
+        "gcp_id": -1
+    },
+    "19": {
+        "name": "EP-11-16323_0011_0389.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0389.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.600343,
+            6.61676875,
+            -870.682
+        ],
+        "enu": [
+            -165.3538124137796,
+            211.64625165409132,
+            -8.68465687059225
+        ],
+        "gcp_id": -1
+    },
+    "20": {
+        "name": "EP-11-16323_0011_0390.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0390.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.600770555555556,
+            6.617361833333334,
+            -870.002
+        ],
+        "enu": [
+            -119.9162819978973,
+            259.1670875693844,
+            -8.005399028134534
+        ],
+        "gcp_id": -1
+    },
+    "21": {
+        "name": "EP-11-16323_0011_0391.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0391.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.600574,
+            6.61800313888889,
+            -868.438
+        ],
+        "enu": [
+            -70.78599271441905,
+            237.3196401520151,
+            -6.4398141066321415
+        ],
+        "gcp_id": -1
+    },
+    "22": {
+        "name": "EP-11-16323_0011_0392.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0392.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60035241666667,
+            6.6186692222222225,
+            -868.519
+        ],
+        "enu": [
+            -19.757082259112384,
+            212.69073557502213,
+            -6.519582308291021
+        ],
+        "gcp_id": -1
+    },
+    "23": {
+        "name": "EP-11-16323_0011_0393.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0393.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60015577777778,
+            6.619356805555556,
+            -868.977
+        ],
+        "enu": [
+            32.919365491145555,
+            190.83478313734167,
+            -6.9769441256406
+        ],
+        "gcp_id": -1
+    },
+    "24": {
+        "name": "EP-11-16323_0011_0394.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0394.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59994477777778,
+            6.620026222222223,
+            -869.671
+        ],
+        "enu": [
+            84.20443264839176,
+            167.38306135356902,
+            -7.670754657713758
+        ],
+        "gcp_id": -1
+    },
+    "25": {
+        "name": "EP-11-16323_0011_0395.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0395.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59972802777778,
+            6.620690416666667,
+            -869.05
+        ],
+        "enu": [
+            135.08984569089893,
+            143.292701447771,
+            -7.050040384131506
+        ],
+        "gcp_id": -1
+    },
+    "26": {
+        "name": "EP-11-16323_0011_0396.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0396.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59953466666667,
+            6.621372583333334,
+            -869.275
+        ],
+        "enu": [
+            187.3524572231616,
+            121.80241788249026,
+            -7.27591198731168
+        ],
+        "gcp_id": -1
+    },
+    "27": {
+        "name": "EP-11-16323_0011_0397.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0397.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60005491666667,
+            6.6216448888888895,
+            -869.772
+        ],
+        "enu": [
+            208.21231458755926,
+            179.62776108185972,
+            -7.774926303559155
+        ],
+        "gcp_id": -1
+    },
+    "28": {
+        "name": "EP-11-16323_0011_0398.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0398.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.600259916666666,
+            6.620979222222223,
+            -868.653
+        ],
+        "enu": [
+            157.21420314210502,
+            202.41156534259665,
+            -6.655151164602785
+        ],
+        "gcp_id": -1
+    },
+    "29": {
+        "name": "EP-11-16323_0011_0399.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0399.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60047302777778,
+            6.6203154444444445,
+            -868.717
+        ],
+        "enu": [
+            106.36113199342708,
+            226.09730245888653,
+            -6.718899013327061
+        ],
+        "gcp_id": -1
+    },
+    "30": {
+        "name": "EP-11-16323_0011_0400.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0400.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60066922222222,
+            6.619624083333334,
+            -869.893
+        ],
+        "enu": [
+            53.39529889558992,
+            247.90315395301909,
+            -7.895048284636374
+        ],
+        "gcp_id": -1
+    },
+    "31": {
+        "name": "EP-11-16323_0011_0401.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0401.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60088419444445,
+            6.6189705000000005,
+            -869.643
+        ],
+        "enu": [
+            3.3240257569772567,
+            271.79663388166864,
+            -7.6458009511428315
+        ],
+        "gcp_id": -1
+    },
+    "32": {
+        "name": "EP-11-16323_0011_0402.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0402.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60111194444445,
+            6.61830488888889,
+            -868.502
+        ],
+        "enu": [
+            -47.668295939482206,
+            297.1108032982035,
+            -6.506108635324182
+        ],
+        "gcp_id": -1
+    },
+    "33": {
+        "name": "EP-11-16323_0011_0403.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0403.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60129302777778,
+            6.617619916666667,
+            -870.164
+        ],
+        "enu": [
+            -100.1434946970947,
+            317.23839487903217,
+            -8.169686546918058
+        ],
+        "gcp_id": -1
+    },
+    "34": {
+        "name": "EP-11-16323_0011_0404.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0404.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60180233333333,
+            6.617954555555556,
+            -869.248
+        ],
+        "enu": [
+            -74.50629388410972,
+            373.84631025567285,
+            -7.256407641261347
+        ],
+        "gcp_id": -1
+    },
+    "35": {
+        "name": "EP-11-16323_0011_0405.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0405.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60160097222222,
+            6.618627444444445,
+            -868.68
+        ],
+        "enu": [
+            -22.957184615780072,
+            351.46506158870284,
+            -6.686739881367799
+        ],
+        "gcp_id": -1
+    },
+    "36": {
+        "name": "EP-11-16323_0011_0406.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0406.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60140911111111,
+            6.6193174444444445,
+            -870.778
+        ],
+        "enu": [
+            29.90316935854789,
+            330.14002287524283,
+            -8.78362740240334
+        ],
+        "gcp_id": -1
+    },
+    "37": {
+        "name": "EP-11-16323_0011_0407.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0407.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.6011875,
+            6.6199776111111115,
+            -868.712
+        ],
+        "enu": [
+            80.47843975612518,
+            305.50898254033825,
+            -6.716835051706113
+        ],
+        "gcp_id": -1
+    },
+    "38": {
+        "name": "EP-11-16323_0011_0408.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0408.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60097719444445,
+            6.620629861111111,
+            -869.903
+        ],
+        "enu": [
+            130.44756588798347,
+            282.1347822365758,
+            -7.907581505697749
+        ],
+        "gcp_id": -1
+    },
+    "39": {
+        "name": "EP-11-16323_0011_0409.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0409.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.600774111111114,
+            6.621287555555556,
+            -868.65
+        ],
+        "enu": [
+            180.8342052765821,
+            259.5638513751244,
+            -6.654849083089516
+        ],
+        "gcp_id": -1
+    },
+    "40": {
+        "name": "EP-11-16323_0011_0410.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0410.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60058002777778,
+            6.62197525,
+            -869.54
+        ],
+        "enu": [
+            233.51944003571305,
+            237.99367215478813,
+            -7.545714986677339
+        ],
+        "gcp_id": -1
+    },
+    "41": {
+        "name": "EP-11-16323_0011_0411.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0411.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.601120055555555,
+            6.622201444444445,
+            -868.888
+        ],
+        "enu": [
+            250.8458424637857,
+            298.01733784158813,
+            -6.8968978617636765
+        ],
+        "gcp_id": -1
+    },
+    "42": {
+        "name": "EP-11-16323_0011_0412.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0412.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60131702777778,
+            6.621552111111112,
+            -869.565
+        ],
+        "enu": [
+            201.09983116733005,
+            319.9084909582949,
+            -7.573200339617301
+        ],
+        "gcp_id": -1
+    },
+    "43": {
+        "name": "EP-11-16323_0011_0413.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0413.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.601526,
+            6.6208687500000005,
+            -868.894
+        ],
+        "enu": [
+            148.74734954598387,
+            343.1338321975026,
+            -6.901975954864099
+        ],
+        "gcp_id": -1
+    },
+    "44": {
+        "name": "EP-11-16323_0011_0414.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0414.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60173516666667,
+            6.620221027777778,
+            -868.91
+        ],
+        "enu": [
+            99.12550405103912,
+            366.3812495982437,
+            -6.918308343279023
+        ],
+        "gcp_id": -1
+    },
+    "45": {
+        "name": "EP-11-16323_0011_0415.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0415.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.601947833333334,
+            6.619553166666667,
+            -868.919
+        ],
+        "enu": [
+            47.961225943093424,
+            390.0180809679907,
+            -6.928123094177437
+        ],
+        "gcp_id": -1
+    },
+    "46": {
+        "name": "EP-11-16323_0011_0416.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0416.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60240680555556,
+            6.620058916666667,
+            -869.071
+        ],
+        "enu": [
+            86.70528006167153,
+            441.0323067874202,
+            -7.083860069336936
+        ],
+        "gcp_id": -1
+    },
+    "47": {
+        "name": "EP-11-16323_0011_0417.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0417.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60219175,
+            6.620729527777779,
+            -869.059
+        ],
+        "enu": [
+            138.07995530552154,
+            417.13028728292886,
+            -7.071153430616931
+        ],
+        "gcp_id": -1
+    },
+    "48": {
+        "name": "EP-11-16323_0011_0418.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0418.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60197441666667,
+            6.621376861111112,
+            -869.232
+        ],
+        "enu": [
+            187.67176324001684,
+            392.97546816880697,
+            -7.243881412001173
+        ],
+        "gcp_id": -1
+    },
+    "49": {
+        "name": "EP-11-16323_0011_0419.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0419.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.601773944444446,
+            6.622046722222223,
+            -869.084
+        ],
+        "enu": [
+            238.98972988069508,
+            370.6952221123121,
+            -7.0962591557177745
+        ],
+        "gcp_id": -1
+    },
+    "50": {
+        "name": "EP-11-16323_0011_0420.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0420.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60156577777778,
+            6.622731666666668,
+            -869.546
+        ],
+        "enu": [
+            291.46361153457815,
+            347.5602127250801,
+            -7.559132999659994
+        ],
+        "gcp_id": -1
+    },
+    "51": {
+        "name": "EP-11-16323_0011_0421.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0421.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.601531083333334,
+            6.622431888888889,
+            -869.198
+        ],
+        "enu": [
+            268.4980891062703,
+            343.7029529048941,
+            -7.209917181346839
+        ],
+        "gcp_id": -1
+    },
+    "52": {
+        "name": "EP-11-16323_0011_0422.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0422.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60107602777778,
+            6.622125361111111,
+            -869.434
+        ],
+        "enu": [
+            245.01729522166872,
+            293.1234788062069,
+            -7.442444526467
+        ],
+        "gcp_id": -1
+    },
+    "53": {
+        "name": "EP-11-16323_0011_0423.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0423.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.600626166666665,
+            6.621827944444445,
+            -868.465
+        ],
+        "enu": [
+            222.23413673687463,
+            243.12152681505987,
+            -6.470506145455275
+        ],
+        "gcp_id": -1
+    },
+    "54": {
+        "name": "EP-11-16323_0011_0424.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0424.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60015963888889,
+            6.621516305555556,
+            -869.126
+        ],
+        "enu": [
+            198.36102438756873,
+            191.26709965821098,
+            -7.128951772862777
+        ],
+        "gcp_id": -1
+    },
+    "55": {
+        "name": "EP-11-16323_0011_0425.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0425.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59969655555556,
+            6.621220972222223,
+            -869.452
+        ],
+        "enu": [
+            175.7367022695495,
+            139.7956679945293,
+            -7.452951465685487
+        ],
+        "gcp_id": -1
+    },
+    "56": {
+        "name": "EP-11-16323_0011_0426.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0426.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59923086111112,
+            6.620913805555556,
+            -869.168
+        ],
+        "enu": [
+            152.2054387670579,
+            88.03409666407875,
+            -7.167421603354775
+        ],
+        "gcp_id": -1
+    },
+    "57": {
+        "name": "EP-11-16323_0011_0427.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0427.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59878061111112,
+            6.620599805555556,
+            -869.467
+        ],
+        "enu": [
+            128.15019920979728,
+            37.98921874314142,
+            -7.46539861183015
+        ],
+        "gcp_id": -1
+    },
+    "58": {
+        "name": "EP-11-16323_0011_0428.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0428.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59831372222222,
+            6.620309583333333,
+            -869.221
+        ],
+        "enu": [
+            105.91630755877647,
+            -13.904900550091863,
+            -7.218893175645985
+        ],
+        "gcp_id": -1
+    },
+    "59": {
+        "name": "EP-11-16323_0011_0429.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0429.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59786866666667,
+            6.6199925,
+            -870.183
+        ],
+        "enu": [
+            81.62403722918137,
+            -63.37222633415176,
+            -8.180836752997465
+        ],
+        "gcp_id": -1
+    },
+    "60": {
+        "name": "EP-11-16323_0011_0430.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0430.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59824805555556,
+            6.619344638888889,
+            -867.901
+        ],
+        "enu": [
+            31.988391794989457,
+            -21.20445627733511,
+            -5.898115386438109
+        ],
+        "gcp_id": -1
+    },
+    "61": {
+        "name": "EP-11-16323_0011_0431.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0431.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59869697222222,
+            6.619658805555556,
+            -867.228
+        ],
+        "enu": [
+            56.05743851197528,
+            28.691848258918053,
+            -5.225310576126633
+        ],
+        "gcp_id": -1
+    },
+    "62": {
+        "name": "EP-11-16323_0011_0432.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0432.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59916833333334,
+            6.619962222222223,
+            -867.124
+        ],
+        "enu": [
+            79.3024679492576,
+            81.08289780839513,
+            -5.122008382955684
+        ],
+        "gcp_id": -1
+    },
+    "63": {
+        "name": "EP-11-16323_0011_0433.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0433.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.599612138888894,
+            6.620280305555556,
+            -866.762
+        ],
+        "enu": [
+            103.67079224858148,
+            130.41132526355065,
+            -4.761176454597063
+        ],
+        "gcp_id": -1
+    },
+    "64": {
+        "name": "EP-11-16323_0011_0434.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0434.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60007463888889,
+            6.6205717222222225,
+            -866.35
+        ],
+        "enu": [
+            125.99571167781207,
+            181.81766745985163,
+            -4.350837931940305
+        ],
+        "gcp_id": -1
+    },
+    "65": {
+        "name": "EP-11-16323_0011_0435.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0435.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60053855555556,
+            6.620878555555556,
+            -867.525
+        ],
+        "enu": [
+            149.50129311733306,
+            233.38153349029278,
+            -5.528025676309753
+        ],
+        "gcp_id": -1
+    },
+    "66": {
+        "name": "EP-11-16323_0011_0436.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0436.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60098577777778,
+            6.621178694444445,
+            -867.407
+        ],
+        "enu": [
+            172.4936917132435,
+            283.0899666085793,
+            -5.4126207885213375
+        ],
+        "gcp_id": -1
+    },
+    "67": {
+        "name": "EP-11-16323_0011_0437.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0437.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.601443055555556,
+            6.621477944444445,
+            -867.164
+        ],
+        "enu": [
+            195.41758324473304,
+            333.9161514640397,
+            -5.17274306985496
+        ],
+        "gcp_id": -1
+    },
+    "68": {
+        "name": "EP-11-16323_0011_0438.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0438.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.601914694444446,
+            6.621786305555556,
+            -866.523
+        ],
+        "enu": [
+            219.0390366093627,
+            386.33868860266205,
+            -4.535473778018229
+        ],
+        "gcp_id": -1
+    },
+    "69": {
+        "name": "EP-11-16323_0011_0439.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0439.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60204363888889,
+            6.620984972222223,
+            -867.593
+        ],
+        "enu": [
+            157.64956851250798,
+            400.66861816640505,
+            -5.604549389525744
+        ],
+        "gcp_id": -1
+    },
+    "70": {
+        "name": "EP-11-16323_0011_0440.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0440.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60159863888889,
+            6.620672972222223,
+            -866.397
+        ],
+        "enu": [
+            133.74884942818858,
+            351.20727928835606,
+            -4.405084467938252
+        ],
+        "gcp_id": -1
+    },
+    "71": {
+        "name": "EP-11-16323_0011_0441.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0441.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.601142833333334,
+            6.620376527777778,
+            -865.737
+        ],
+        "enu": [
+            111.03944984700146,
+            300.54500129362646,
+            -3.742056926662343
+        ],
+        "gcp_id": -1
+    },
+    "72": {
+        "name": "EP-11-16323_0011_0442.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0442.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60068508333333,
+            6.620089833333334,
+            -866.126
+        ],
+        "enu": [
+            89.07660462832047,
+            249.6666510237413,
+            -4.128515039994284
+        ],
+        "gcp_id": -1
+    },
+    "73": {
+        "name": "EP-11-16323_0011_0443.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0443.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60023188888889,
+            6.619768027777778,
+            -866.373
+        ],
+        "enu": [
+            64.4234897028453,
+            199.2947065605688,
+            -4.373443270293322
+        ],
+        "gcp_id": -1
+    },
+    "74": {
+        "name": "EP-11-16323_0011_0444.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0444.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59976502777778,
+            6.619478527777778,
+            -866.403
+        ],
+        "enu": [
+            42.244959953054014,
+            147.40387104163176,
+            -4.401845615373986
+        ],
+        "gcp_id": -1
+    },
+    "75": {
+        "name": "EP-11-16323_0011_0445.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0445.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59930697222222,
+            6.619165250000001,
+            -865.518
+        ],
+        "enu": [
+            18.24437780794031,
+            96.4918487740286,
+            -3.5157570685968906
+        ],
+        "gcp_id": -1
+    },
+    "76": {
+        "name": "EP-11-16323_0011_0446.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0446.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59884322222222,
+            6.618864527777778,
+            -866.523
+        ],
+        "enu": [
+            -4.794695839153427,
+            44.94697193925707,
+            -4.520160415686988
+        ],
+        "gcp_id": -1
+    },
+    "77": {
+        "name": "EP-11-16323_0011_0447.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0447.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59838669444445,
+            6.6185513333333335,
+            -865.899
+        ],
+        "enu": [
+            -28.789701025531468,
+            -5.7950590088582805,
+            -3.8960675071426056
+        ],
+        "gcp_id": -1
+    },
+    "78": {
+        "name": "EP-11-16323_0011_0448.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0448.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59870005555556,
+            6.617850888888889,
+            -864.232
+        ],
+        "enu": [
+            -82.4528413111629,
+            29.03487043422823,
+            -2.2295982704481627
+        ],
+        "gcp_id": -1
+    },
+    "79": {
+        "name": "EP-11-16323_0011_0449.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0449.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.599148222222226,
+            6.618179888888889,
+            -859.522
+        ],
+        "enu": [
+            -57.24666475923704,
+            78.84743521072883,
+            2.4802553994451983
+        ],
+        "gcp_id": -1
+    },
+    "80": {
+        "name": "EP-11-16323_0011_0450.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0450.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59960133333333,
+            6.618468861111111,
+            -860.934
+        ],
+        "enu": [
+            -35.107440419819724,
+            129.20964122713985,
+            1.0675927377024834
+        ],
+        "gcp_id": -1
+    },
+    "81": {
+        "name": "EP-11-16323_0011_0451.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0451.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.600070083333335,
+            6.618781055555556,
+            -861.221
+        ],
+        "enu": [
+            -11.189508487118951,
+            181.31016951984827,
+            0.7794091881605851
+        ],
+        "gcp_id": -1
+    },
+    "82": {
+        "name": "EP-11-16323_0011_0452.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0452.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60052711111111,
+            6.619078694444445,
+            -861.975
+        ],
+        "enu": [
+            11.61289980666091,
+            232.10787113823892,
+            0.023759589686321192
+        ],
+        "gcp_id": -1
+    },
+    "83": {
+        "name": "EP-11-16323_0011_0453.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0453.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60099027777778,
+            6.619369722222222,
+            -861.556
+        ],
+        "enu": [
+            33.908444355467346,
+            283.5880254334519,
+            0.440595765140813
+        ],
+        "gcp_id": -1
+    },
+    "84": {
+        "name": "EP-11-16323_0011_0454.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0454.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60143002777778,
+            6.619689722222223,
+            -861.334
+        ],
+        "enu": [
+            58.42317885109145,
+            332.4655672518894,
+            0.660054473605669
+        ],
+        "gcp_id": -1
+    },
+    "85": {
+        "name": "EP-11-16323_0011_0455.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0455.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60190727777778,
+            6.619972527777779,
+            -860.281
+        ],
+        "enu": [
+            80.08805243392504,
+            385.5112791947349,
+            1.709829371686368
+        ],
+        "gcp_id": -1
+    },
+    "86": {
+        "name": "EP-11-16323_0011_0456.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0456.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60236008333334,
+            6.620281972222223,
+            -860.805
+        ],
+        "enu": [
+            103.79332782628256,
+            435.8400643753547,
+            1.1822426483830384
+        ],
+        "gcp_id": -1
+    },
+    "87": {
+        "name": "EP-11-16323_0011_0457.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0457.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60257197222222,
+            6.619515305555556,
+            -862.665
+        ],
+        "enu": [
+            45.060266704918966,
+            459.390245557051,
+            -0.6787284091998913
+        ],
+        "gcp_id": -1
+    },
+    "88": {
+        "name": "EP-11-16323_0011_0458.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0458.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.602112500000004,
+            6.619205083333334,
+            -861.071
+        ],
+        "enu": [
+            21.29501834687644,
+            408.3207871480312,
+            0.9188742340994054
+        ],
+        "gcp_id": -1
+    },
+    "89": {
+        "name": "EP-11-16323_0011_0459.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0459.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.6016465,
+            6.618924305555556,
+            -860.801
+        ],
+        "enu": [
+            -0.21493108670886585,
+            356.52577624957684,
+            1.1920200634023388
+        ],
+        "gcp_id": -1
+    },
+    "90": {
+        "name": "EP-11-16323_0011_0460.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0460.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.601187055555556,
+            6.618626722222222,
+            -860.922
+        ],
+        "enu": [
+            -23.012716587153122,
+            305.4594649224341,
+            1.0736327876993812
+        ],
+        "gcp_id": -1
+    },
+    "91": {
+        "name": "EP-11-16323_0011_0461.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0461.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60072963888889,
+            6.618318305555556,
+            -861.179
+        ],
+        "enu": [
+            -46.640829832104856,
+            254.61863007102227,
+            0.8187396485037794
+        ],
+        "gcp_id": -1
+    },
+    "92": {
+        "name": "EP-11-16323_0011_0462.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0462.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60027752777778,
+            6.61800425,
+            -860.22
+        ],
+        "enu": [
+            -70.70134650143562,
+            204.36764178800752,
+            1.7793295642086093
+        ],
+        "gcp_id": -1
+    },
+    "93": {
+        "name": "EP-11-16323_0011_0463.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0463.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.599813861111116,
+            6.61771638888889,
+            -860.702
+        ],
+        "enu": [
+            -92.75546890685261,
+            152.83229514699428,
+            1.2984927423451182
+        ],
+        "gcp_id": -1
+    },
+    "94": {
+        "name": "EP-11-16323_0011_0464.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0464.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.599356,
+            6.617410722222223,
+            -860.701
+        ],
+        "enu": [
+            -116.17408573898057,
+            101.94235065645879,
+            1.300127772141515
+        ],
+        "gcp_id": -1
+    },
+    "95": {
+        "name": "EP-11-16323_0011_0465.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0465.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59888638888889,
+            6.617072500000001,
+            -861.132
+        ],
+        "enu": [
+            -142.08729616119516,
+            49.746566872990826,
+            0.8692256298123269
+        ],
+        "gcp_id": -1
+    },
+    "96": {
+        "name": "EP-11-16323_0011_0466.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0466.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59936816666667,
+            6.6164926388888885,
+            -861.169
+        ],
+        "enu": [
+            -186.5105334588745,
+            103.29640568089734,
+            0.8304397158069747
+        ],
+        "gcp_id": -1
+    },
+    "97": {
+        "name": "EP-11-16323_0011_0467.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0467.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.59982316666667,
+            6.616818416666667,
+            -859.446
+        ],
+        "enu": [
+            -161.5506375652769,
+            153.86806736955862,
+            2.553098557965143
+        ],
+        "gcp_id": -1
+    },
+    "98": {
+        "name": "EP-11-16323_0011_0468.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0468.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60028191666667,
+            6.617132777777778,
+            -860.134
+        ],
+        "enu": [
+            -137.46572768155764,
+            204.85661112062945,
+            1.8642261199238988
+        ],
+        "gcp_id": -1
+    },
+    "99": {
+        "name": "EP-11-16323_0011_0469.JPG",
+        "path": "/home/rey/workspace/pimg/data/data/small_village/raw_images/EP-11-16323_0011_0469.JPG",
+        "cam_id": 0,
+        "width": 5472,
+        "height": 3648,
+        "resize_factor": 0.25,
+        "gps": [
+            46.60074325,
+            6.617417055555556,
+            -860.358
+        ],
+        "enu": [
+            -115.68592790929532,
+            256.1324387207462,
+            1.638801762466997
+        ],
+        "gcp_id": -1
+    }
+}
