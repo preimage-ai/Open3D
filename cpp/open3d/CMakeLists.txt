@@ -35,6 +35,7 @@ add_subdirectory(geometry)
 add_subdirectory(io)
 add_subdirectory(ml)
 add_subdirectory(pipelines)
+add_subdirectory(preimage/image)
 add_subdirectory(t/geometry)
 add_subdirectory(t/io)
 add_subdirectory(t/pipelines)
@@ -60,6 +61,8 @@ open3d_ispc_target_sources_TARGET_OBJECTS(Open3D PRIVATE
     core
     data
     geometry
+    preimage_image
+    preimage_image_kernel
     tgeometry
     tgeometry_kernel
     io
@@ -88,6 +91,7 @@ endif()
 add_source_group(camera)
 add_source_group(core)
 add_source_group(data)
+add_source_group(preimage_image)
 add_source_group(geometry)
 add_source_group(tgeometry)
 add_source_group(io)
