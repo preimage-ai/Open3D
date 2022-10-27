@@ -27,6 +27,14 @@ macro(open3d_add_example EXAMPLE_CPP_NAME)
     list(APPEND EXAMPLE_TARGETS ${EXAMPLE_CPP_NAME})
 endmacro()
 
+find_package(PkgConfig REQUIRED)
+include_directories(${PROJECT_SOURCE_DIR}/include ${vips_INCLUDE_DIRS})
+pkg_check_modules(vips REQUIRED vips-cpp)
+
+if(BUILD_CUDA_MODULE)
+    open3d_add_example(PimgFD                        ${vips_LIBRARIES})
+    open3d_add_example(PimgFM                                         )
+endif()
 
 if (BUILD_GUI)
     open3d_add_example(TICP                  Open3D::3rdparty_threads)
